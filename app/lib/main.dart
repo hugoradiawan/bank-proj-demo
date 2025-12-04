@@ -1,6 +1,8 @@
+import 'package:core/core.dart' show AppTypography;
 import 'package:flutter/material.dart';
 
 void main() {
+  AppTypography.init();
   runApp(const MyApp());
 }
 
@@ -8,9 +10,12 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
+  Widget build(_) => MaterialApp(
     title: 'Flutter Demo',
-    theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      textTheme: AppTypography.buildTextTheme(Colors.black),
+    ),
     home: const MyHomePage(title: 'Flutter Demo Home Page'),
   );
 }
