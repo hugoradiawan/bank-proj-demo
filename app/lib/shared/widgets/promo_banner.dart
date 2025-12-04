@@ -30,8 +30,8 @@ class PromoBanner extends StatelessWidget {
                   Text(
                     'More Benefit, More Fun!',
                     style: theme.textTheme.titleMedium?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
+                      color: colors.gold2,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   const SizedBox(height: 4),

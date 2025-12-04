@@ -34,6 +34,7 @@ abstract class AppColors {
 
   // Accent
   Color get gold;
+  Color get gold2;
   Color get premium;
 
   // Gradients
@@ -96,6 +97,9 @@ class LightColors implements AppColors {
   // Accent
   @override
   Color get gold => const Color(0xFFEAB308);
+  @override
+  Color get gold2 => const Color.fromARGB(255, 252, 191, 10);
+
   @override
   Color get premium => const Color(0xFFD97706);
 
