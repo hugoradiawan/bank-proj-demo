@@ -37,11 +37,14 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-       SliverPadding(
+      SliverPadding(
         padding: const EdgeInsets.only(bottom: 24),
-        sliver: SliverToBoxAdapter(child: Container(
-          color: Colors.transparent,
-          child: const PromoBanner())),
+        sliver: SliverToBoxAdapter(
+          child: Container(
+            color: Colors.transparent,
+            child: const PromoBanner(),
+          ),
+        ),
       ),
       const SliverPadding(
         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -51,8 +54,7 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(16, 24, 0, 24),
         sliver: SliverToBoxAdapter(child: PromoCarousel()),
       ),
-      const SliverToBoxAdapter(child: SizedBox(height: 80)),
-      const SliverToBoxAdapter(child: SizedBox(height: 800)),
+      const SliverToBoxAdapter(child: SizedBox(height: 200)),
     ],
   );
 }
