@@ -25,7 +25,7 @@ class _AppScaffoldState extends State<AppScaffold> {
       case 4:
         return const _PlaceholderPage(title: 'Profile');
       default:
-        return const HomePage();
+        return const SizedBox.shrink();
     }
   }
 

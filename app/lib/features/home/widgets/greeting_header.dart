@@ -29,14 +29,9 @@ class GreetingHeader extends StatelessWidget {
     final LightColors colors = LightColors();
 
     return Container(
+      alignment: Alignment.bottomCenter,
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-      decoration: BoxDecoration(
-        gradient: colors.primaryGradient,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(24),
-          bottomRight: Radius.circular(24),
-        ),
-      ),
+      decoration: BoxDecoration(color: colors.primary),
       child: SafeArea(
         bottom: false,
         child: Row(

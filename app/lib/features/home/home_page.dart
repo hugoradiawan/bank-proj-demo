@@ -1,5 +1,6 @@
 import 'package:app/features/home/widgets/widgets.dart';
 import 'package:app/shared/widgets/widgets.dart';
+import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,16 +9,39 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => CustomScrollView(
     slivers: <Widget>[
-      const SliverToBoxAdapter(child: GreetingHeader()),
-      SliverToBoxAdapter(
-        child: Transform.translate(
-          offset: const Offset(0, -20),
-          child: const BalanceCard(),
+      SliverAppBar(
+        pinned: true,
+        backgroundColor: LightColors().primary,
+        elevation: 0,
+        toolbarHeight: 0,
+        expandedHeight: 85,
+        flexibleSpace: const FlexibleSpaceBar(background: GreetingHeader()),
+      ),
+      SliverAppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        toolbarHeight: 0,
+        expandedHeight: 200,
+        flexibleSpace: FlexibleSpaceBar(
+          background: Stack(
+            children: <Widget>[
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Expanded(child: Container(color: LightColors().primary)),
+                  Expanded(child: Container(color: LightColors().surface)),
+                ],
+              ),
+              const BalanceCard(),
+            ],
+          ),
         ),
       ),
-      const SliverPadding(
-        padding: EdgeInsets.only(top: 4, bottom: 24),
-        sliver: SliverToBoxAdapter(child: PromoBanner()),
+       SliverPadding(
+        padding: const EdgeInsets.only(bottom: 24),
+        sliver: SliverToBoxAdapter(child: Container(
+          color: Colors.transparent,
+          child: const PromoBanner())),
       ),
       const SliverPadding(
         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -28,6 +52,7 @@ class HomePage extends StatelessWidget {
         sliver: SliverToBoxAdapter(child: PromoCarousel()),
       ),
       const SliverToBoxAdapter(child: SizedBox(height: 80)),
+      const SliverToBoxAdapter(child: SizedBox(height: 800)),
     ],
   );
 }
