@@ -25,7 +25,10 @@ class HomePage extends StatelessWidget {
                 Expanded(child: Container(color: LightColors().surface)),
               ],
             ),
-            const BalanceCard(),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 8),
+              child: BalanceCard(),
+            ),
           ],
         ),
       ),

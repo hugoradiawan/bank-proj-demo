@@ -1,3 +1,4 @@
+import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart';
 
 class QuickActionButton extends StatelessWidget {
@@ -17,6 +18,7 @@ class QuickActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final LightColors colors = LightColors();
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -29,20 +31,23 @@ class QuickActionButton extends StatelessWidget {
               if (badge != null)
                 Positioned(
                   top: -7,
-                  right: -35,
+                  right: -38,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 6,
                       vertical: 2,
                     ),
                     decoration: BoxDecoration(
-                      color: theme.colorScheme.primary,
-                      borderRadius: BorderRadius.circular(8),
+                      color: colors.surfaceVariant,
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: colors.success.withValues(alpha: .2),
+                      ),
                     ),
                     child: Text(
                       badge!,
                       style: theme.textTheme.labelSmall?.copyWith(
-                        color: Colors.white,
+                        color: colors.success,
                         fontSize: 10,
                         fontWeight: FontWeight.w600,
                       ),
