@@ -1,16 +1,12 @@
 import 'package:app/home/components/home.component.dart' show AppBottomNavBar;
+import 'package:app/home/cubits/home_cubit.dart' show AppBottomNavBarCubit;
 import 'package:app/home/enums/tabs.enum.dart' show TabsEnum;
-import 'package:core/core.dart' show BlocBuilder, BlocProvider, Cubit;
+import 'package:core/core.dart' show BlocBuilder, BlocProvider;
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(_) => BlocProvider<AppBottomNavBarCubit>(
     create: (_) => AppBottomNavBarCubit(),
@@ -25,12 +21,4 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     ),
   );
-}
-
-class AppBottomNavBarCubit extends Cubit<int> {
-  AppBottomNavBarCubit() : super(0);
-
-  void setIndex(int index) => emit(index);
-
-  void onTap(TabsEnum tab) => emit(TabsEnum.values.indexOf(tab));
 }

@@ -1,5 +1,5 @@
+import 'package:app/home/cubits/home_cubit.dart' show AppBottomNavBarCubit;
 import 'package:app/home/enums/tabs.enum.dart' show TabsEnum;
-import 'package:app/home/home_page.dart' show AppBottomNavBarCubit;
 import 'package:core/core.dart' show BlocBuilder, LightColors, ReadContext;
 import 'package:flutter/material.dart'
     show
