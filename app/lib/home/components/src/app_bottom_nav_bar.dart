@@ -4,14 +4,7 @@
 part of '../home.component.dart';
 
 class _AppBottomNavBar extends StatelessWidget {
-  const _AppBottomNavBar({
-    required this.currentIndex,
-    required this.onTap,
-    super.key,
-  });
-
-  final int currentIndex;
-  final ValueChanged<int> onTap;
+  const _AppBottomNavBar({super.key});
 
   @override
   Widget build(_) => Padding(
@@ -23,49 +16,22 @@ class _AppBottomNavBar extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            _NavItem(
-              icon: currentIndex == 0
-                  ? PhosphorIconsFill.house
-                  : PhosphorIconsBold.house,
-              label: 'Home',
-              isSelected: currentIndex == 0,
-              onTap: () => onTap(0),
-            ),
-            _NavItem(
-              icon: currentIndex == 1
-                  ? PhosphorIconsFill.coins
-                  : PhosphorIconsBold.coins,
-              label: 'Finance',
-              isSelected: currentIndex == 1,
-              onTap: () => onTap(1),
-            ),
-            _NavItem(
-              icon: currentIndex == 2
-                  ? PhosphorIconsFill.qrCode
-                  : PhosphorIconsBold.qrCode,
-              label: 'QRIS',
-              isQris: true,
-              isSelected: currentIndex == 2,
-              onTap: () => onTap(2),
-            ),
-            _NavItem(
-              icon: currentIndex == 3
-                  ? PhosphorIconsFill.chartPieSlice
-                  : PhosphorIconsBold.chartPieSlice,
-              label: 'Portfolio',
-              isSelected: currentIndex == 3,
-              onTap: () => onTap(3),
-            ),
-            _NavItem(
-              icon: currentIndex == 4
-                  ? PhosphorIconsFill.user
-                  : PhosphorIconsBold.user,
-              label: 'Profile',
-              isSelected: currentIndex == 4,
-              onTap: () => onTap(4),
-            ),
-          ],
+          children: TabsEnum.values
+              .map(
+                (TabsEnum tab) => BlocBuilder<AppBottomNavBarCubit, int>(
+                  builder: (BuildContext context, int currentIndex) => _NavItem(
+                    icon: currentIndex == TabsEnum.values.indexOf(tab)
+                        ? tab.iconFilled
+                        : tab.iconBold,
+                    label: tab.label,
+                    isQris: tab.isQris,
+                    isSelected: currentIndex == TabsEnum.values.indexOf(tab),
+                    onTap: () =>
+                        context.read<AppBottomNavBarCubit>().onTap(tab),
+                  ),
+                ),
+              )
+              .toList(),
         ),
       ],
     ),

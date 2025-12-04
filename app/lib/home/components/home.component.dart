@@ -1,4 +1,6 @@
-import 'package:core/core.dart' show LightColors;
+import 'package:app/home/enums/tabs.enum.dart' show TabsEnum;
+import 'package:app/home/home_page.dart' show AppBottomNavBarCubit;
+import 'package:core/core.dart' show BlocBuilder, LightColors, ReadContext;
 import 'package:flutter/material.dart'
     show
         Alignment,
@@ -54,14 +56,12 @@ import 'package:flutter/material.dart'
         Theme,
         ThemeData,
         Transform,
-        ValueChanged,
         VoidCallback,
         Widget;
 import 'package:shared/shared.dart'
     show
         PhosphorIcon,
         PhosphorIconsBold,
-        PhosphorIconsFill,
         QuickActionButton,
         SectionHeader,
         VerticalIconButton;
