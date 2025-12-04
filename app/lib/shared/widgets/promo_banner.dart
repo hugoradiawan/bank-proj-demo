@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class PromoBanner extends StatelessWidget {
-  const PromoBanner({
-    this.onTap,
-    super.key,
-  });
+  const PromoBanner({this.onTap, super.key});
 
   final VoidCallback? onTap;
 
@@ -19,7 +16,7 @@ class PromoBanner extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16),
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 16),
         decoration: BoxDecoration(
           gradient: colors.premiumGradient,
           borderRadius: BorderRadius.circular(20),
@@ -57,7 +54,18 @@ class PromoBanner extends StatelessWidget {
                 ],
               ),
             ),
-            PhosphorIcon(PhosphorIconsBold.crown, color: colors.gold, size: 56),
+            Transform(
+              transform: Matrix4.identity()
+                ..rotateZ(0.28)
+                ..scaleByDouble(2.1, 2.1, 1, 1),
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/images/crown.webp',
+                width: 80,
+                height: 80,
+                fit: BoxFit.contain,
+              ),
+            ),
           ],
         ),
       ),

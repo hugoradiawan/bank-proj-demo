@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       SliverPadding(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: const EdgeInsets.only(bottom: 24, top: 12),
         sliver: SliverToBoxAdapter(
           child: Container(
             color: Colors.transparent,

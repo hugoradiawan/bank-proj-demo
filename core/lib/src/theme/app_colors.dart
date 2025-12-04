@@ -37,7 +37,6 @@ abstract class AppColors {
   Color get premium;
 
   // Gradients
-  LinearGradient get primaryGradient;
   LinearGradient get premiumGradient;
 }
 
@@ -101,17 +100,17 @@ class LightColors implements AppColors {
   Color get premium => const Color(0xFFD97706);
 
   // Gradients
-  @override
-  LinearGradient get primaryGradient => const LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: <Color>[Color(0xFF1D4ED8), Color(0xFF3B82F6)],
-  );
 
   @override
   LinearGradient get premiumGradient => const LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: <Color>[Color(0xFF1E3A8A), Color(0xFF1D4ED8)],
+    stops: <double>[0, .75, .9, 1],
+    colors: <Color>[
+      Color.fromARGB(255, 173, 132, 10),
+      Color(0xFF000000),
+      Color(0xFF000000),
+      Color(0xFF000000),
+    ],
   );
 }
