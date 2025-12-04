@@ -11,6 +11,7 @@ environment:
 workspace:
   - app
   - core
+  - shared
 
 dev_dependencies:
   melos: ^7.3.0

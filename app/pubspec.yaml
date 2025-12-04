@@ -10,13 +10,13 @@ environment:
 
 dependencies:
   core:
+  shared:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
   build_runner: ^2.4.15
   freezed: ^3.0.0
   json_serializable: ^6.11.0
-  phosphor_flutter: ^2.1.0
 
 dev_dependencies:
   flutter_test:

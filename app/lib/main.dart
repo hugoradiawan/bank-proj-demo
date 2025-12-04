@@ -1,4 +1,4 @@
-import 'package:app/shell/app_scaffold.dart';
+import 'package:app/home/home_page.dart' show HomePage;
 import 'package:core/core.dart' show AppTheme, AppTypography;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'
@@ -35,6 +35,6 @@ class MondooliApp extends StatelessWidget {
   @override
   Widget build(_) => AnnotatedRegion<SystemUiOverlayStyle>(
     value: _overlayStyle,
-    child: MaterialApp(theme: AppTheme.light, home: const AppScaffold()),
+    child: MaterialApp(theme: AppTheme.light, home: const HomePage()),
   );
 }

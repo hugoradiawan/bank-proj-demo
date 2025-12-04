@@ -1,9 +1,10 @@
-import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+// ignore because of it does used
+// ignore_for_file: unused_element_parameter
 
-class PromoBanner extends StatelessWidget {
-  const PromoBanner({this.onTap, super.key});
+part of '../home.component.dart';
+
+class _PromoBanner extends StatelessWidget {
+  const _PromoBanner({this.onTap, super.key});
 
   final VoidCallback? onTap;
 

@@ -1,5 +1,29 @@
 import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        Alignment,
+        Border,
+        BorderRadius,
+        BoxDecoration,
+        BuildContext,
+        Center,
+        Clip,
+        Column,
+        Container,
+        EdgeInsets,
+        Expanded,
+        FontWeight,
+        InkWell,
+        MainAxisSize,
+        Positioned,
+        SizedBox,
+        Stack,
+        StatelessWidget,
+        Text,
+        Theme,
+        ThemeData,
+        VoidCallback,
+        Widget;
 
 class QuickActionButton extends StatelessWidget {
   const QuickActionButton({

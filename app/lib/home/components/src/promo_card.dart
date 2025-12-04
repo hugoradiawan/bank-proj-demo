@@ -1,8 +1,9 @@
-import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
+// ignore because of it does used
+// ignore_for_file: unused_element_parameter
+part of '../home.component.dart';
 
-class PromoCard extends StatelessWidget {
-  const PromoCard({
+class _PromoCard extends StatelessWidget {
+  const _PromoCard({
     required this.title,
     required this.subtitle,
     this.backgroundColor,

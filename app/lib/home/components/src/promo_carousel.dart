@@ -1,9 +1,9 @@
-import 'package:app/shared/widgets/widgets.dart';
-import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
+// ignore because of it does used
+// ignore_for_file: unused_element_parameter
+part of '../home.component.dart';
 
-class PromoCarousel extends StatefulWidget {
-  const PromoCarousel({this.onMorePromo, super.key});
+class _PromoCarousel extends StatefulWidget {
+  const _PromoCarousel({this.onMorePromo, super.key});
 
   final VoidCallback? onMorePromo;
 
@@ -53,7 +53,7 @@ class _PromoCarouselState extends State<PromoCarousel> {
               final _PromoData promo = _promos[index];
               return Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: PromoCard(title: promo.title, subtitle: promo.subtitle),
+                child: _PromoCard(title: promo.title, subtitle: promo.subtitle),
               );
             },
           ),

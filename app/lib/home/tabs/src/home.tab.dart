@@ -1,13 +1,10 @@
-import 'package:app/features/home/widgets/widgets.dart';
-import 'package:app/shared/widgets/widgets.dart';
-import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
+part of '../tabs.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class _HomeTab extends StatelessWidget {
+  const _HomeTab();
 
   @override
-  Widget build(BuildContext context) => CustomScrollView(
+  Widget build(_) => CustomScrollView(
     slivers: <Widget>[
       _appBar(
         heights: (85, 30),

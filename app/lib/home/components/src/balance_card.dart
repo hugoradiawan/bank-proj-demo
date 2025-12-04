@@ -1,11 +1,10 @@
-import 'package:app/shared/widgets/quick_action_button.dart'
-    show QuickActionButton;
-import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+// ignore because of it does used
+// ignore_for_file: unused_element_parameter
 
-class BalanceCard extends StatelessWidget {
-  const BalanceCard({
+part of '../home.component.dart';
+
+class _BalanceCard extends StatelessWidget {
+  const _BalanceCard({
     this.balance = 'Rp10.000.000',
     this.onDeposit,
     this.onTransfer,
@@ -112,47 +111,6 @@ class BalanceCard extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _DepositButton extends StatelessWidget {
-  const _DepositButton({this.onTap});
-
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final LightColors colors = LightColors();
-    return Material(
-      type: MaterialType.transparency,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: colors.primaryLight.withValues(alpha: 0.5)),
-      ),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(8),
-        splashColor: colors.primary.withValues(alpha: 0.3),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Icon(Icons.add_circle, color: colors.primary, size: 16),
-              const SizedBox(width: 4),
-              Text(
-                'Deposit',
-                style: theme.textTheme.labelSmall?.copyWith(
-                  color: colors.primary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

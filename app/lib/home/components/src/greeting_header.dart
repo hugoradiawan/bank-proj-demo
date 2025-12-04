@@ -1,9 +1,10 @@
-import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+// ignore because of it does used
+// ignore_for_file: unused_element_parameter
 
-class GreetingHeader extends StatelessWidget {
-  const GreetingHeader({
+part of '../home.component.dart';
+
+class _GreetingHeader extends StatelessWidget {
+  const _GreetingHeader({
     this.userName = 'John Doe',
     this.avatarUrl,
     this.onNotificationTap,
@@ -96,41 +97,17 @@ class GreetingHeader extends StatelessWidget {
             ),
             Transform.flip(
               flipX: true,
-              child: _IconButton(
+              child: VerticalIconButton(
                 icon: PhosphorIconsBold.headset,
                 onTap: onCustomerServiceTap,
               ),
             ),
             const SizedBox(width: 8),
-            _IconButton(icon: PhosphorIconsBold.bell, onTap: onNotificationTap),
+            VerticalIconButton(
+              icon: PhosphorIconsBold.bell,
+              onTap: onNotificationTap,
+            ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class _IconButton extends StatelessWidget {
-  const _IconButton({required this.icon, this.onTap});
-
-  final IconData icon;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
-    return Material(
-      color: colors.primary,
-      child: InkWell(
-        splashColor: Colors.white.withValues(alpha: 0.3),
-        borderRadius: BorderRadius.circular(200),
-        onTap: onTap,
-        child: SizedBox(
-          width: 40,
-          height: 40,
-          child: Center(
-            child: PhosphorIcon(icon, color: Colors.white, size: 20),
-          ),
         ),
       ),
     );
