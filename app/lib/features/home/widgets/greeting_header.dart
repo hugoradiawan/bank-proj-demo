@@ -37,20 +37,22 @@ class GreetingHeader extends StatelessWidget {
         child: Row(
           children: <Widget>[
             CircleAvatar(
-              radius: 24,
+              radius: 22,
               backgroundColor: Colors.white.withValues(alpha: 0.2),
               backgroundImage: avatarUrl != null
                   ? NetworkImage(avatarUrl!)
                   : null,
               child: avatarUrl == null
-                  ? const PhosphorIcon(
-                      PhosphorIconsBold.user,
-                      color: Colors.white,
-                      size: 28,
+                  ? const ClipOval(
+                      child: Image(
+                        image: AssetImage('assets/images/person.webp'),
+                        width: 64,
+                        height: 64,
+                      ),
                     )
                   : null,
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +74,13 @@ class GreetingHeader extends StatelessWidget {
                 ],
               ),
             ),
-            _IconButton(icon: PhosphorIconsBold.headset, onTap: onRefreshTap),
+            Transform.flip(
+              flipX: true,
+              child: _IconButton(
+                icon: PhosphorIconsBold.headset,
+                onTap: onRefreshTap,
+              ),
+            ),
             const SizedBox(width: 8),
             _IconButton(icon: PhosphorIconsBold.bell, onTap: onNotificationTap),
           ],
