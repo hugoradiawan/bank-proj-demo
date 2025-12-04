@@ -19,51 +19,56 @@ class QuickActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final LightColors colors = LightColors();
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Stack(
-            clipBehavior: Clip.none,
-            children: <Widget>[
-              SizedBox(child: Center(child: icon)),
-              if (badge != null)
-                Positioned(
-                  top: -7,
-                  right: -38,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 6,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: colors.surfaceVariant,
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        color: colors.success.withValues(alpha: .2),
+    return Expanded(
+      child: InkWell(
+        splashColor: colors.primaryLight.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(8),
+        onTap: onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: <Widget>[
+                SizedBox(child: Center(child: icon)),
+                if (badge != null)
+                  Positioned(
+                    top: -10,
+                    right: 10,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
                       ),
-                    ),
-                    child: Text(
-                      badge!,
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: colors.success,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
+                      decoration: BoxDecoration(
+                        color: colors.surfaceVariant,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: colors.success.withValues(alpha: .2),
+                        ),
+                      ),
+                      child: Text(
+                        badge!,
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: colors.success,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
-                ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              fontWeight: FontWeight.w600,
+              ],
             ),
-          ),
-        ],
+            const SizedBox(height: 4),
+            Text(
+              label,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

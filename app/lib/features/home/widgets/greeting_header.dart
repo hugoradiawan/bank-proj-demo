@@ -7,14 +7,16 @@ class GreetingHeader extends StatelessWidget {
     this.userName = 'John Doe',
     this.avatarUrl,
     this.onNotificationTap,
-    this.onRefreshTap,
+    this.onCustomerServiceTap,
+    this.onProfileTap,
     super.key,
   });
 
   final String userName;
   final String? avatarUrl;
   final VoidCallback? onNotificationTap;
-  final VoidCallback? onRefreshTap;
+  final VoidCallback? onCustomerServiceTap;
+  final VoidCallback? onProfileTap;
 
   String get _greeting {
     final int hour = DateTime.now().hour;
@@ -36,21 +38,38 @@ class GreetingHeader extends StatelessWidget {
         bottom: false,
         child: Row(
           children: <Widget>[
-            CircleAvatar(
-              radius: 22,
-              backgroundColor: Colors.white.withValues(alpha: 0.2),
-              backgroundImage: avatarUrl != null
-                  ? NetworkImage(avatarUrl!)
-                  : null,
-              child: avatarUrl == null
-                  ? const ClipOval(
-                      child: Image(
-                        image: AssetImage('assets/images/person.webp'),
-                        width: 64,
-                        height: 64,
+            Material(
+              color: colors.gray200.withValues(alpha: 0.7),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40),
+                side: BorderSide(
+                  color: colors.primaryLight.withValues(alpha: 0.5),
+                ),
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(40),
+                splashColor: Colors.white,
+                onTap: onProfileTap,
+                child: avatarUrl != null
+                    ? Ink.image(
+                        image: NetworkImage(avatarUrl!),
+                        width: 44,
+                        height: 44,
+                        fit: BoxFit.cover,
+                      )
+                    : Ink(
+                        width: 44,
+                        height: 44,
+                        child: const ClipOval(
+                          child: Image(
+                            image: AssetImage('assets/images/person.webp'),
+                            width: 44,
+                            height: 44,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                    )
-                  : null,
+              ),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -79,7 +98,7 @@ class GreetingHeader extends StatelessWidget {
               flipX: true,
               child: _IconButton(
                 icon: PhosphorIconsBold.headset,
-                onTap: onRefreshTap,
+                onTap: onCustomerServiceTap,
               ),
             ),
             const SizedBox(width: 8),
@@ -98,12 +117,22 @@ class _IconButton extends StatelessWidget {
   final VoidCallback? onTap;
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
-    onTap: onTap,
-    child: SizedBox(
-      width: 40,
-      height: 40,
-      child: Center(child: PhosphorIcon(icon, color: Colors.white, size: 20)),
-    ),
-  );
+  Widget build(BuildContext context) {
+    final LightColors colors = LightColors();
+    return Material(
+      color: colors.primary,
+      child: InkWell(
+        splashColor: Colors.white.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(200),
+        onTap: onTap,
+        child: SizedBox(
+          width: 40,
+          height: 40,
+          child: Center(
+            child: PhosphorIcon(icon, color: Colors.white, size: 20),
+          ),
+        ),
+      ),
+    );
+  }
 }

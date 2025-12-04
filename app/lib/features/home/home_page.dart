@@ -12,7 +12,11 @@ class HomePage extends StatelessWidget {
       _appBar(
         heights: (85, 30),
         backgroundColor: LightColors().primary,
-        child: const GreetingHeader(),
+        child: GreetingHeader(
+          onNotificationTap: () {},
+          onProfileTap: () {},
+          onCustomerServiceTap: () {},
+        ),
       ),
       _appBar(
         heights: (178, 60),
@@ -25,24 +29,37 @@ class HomePage extends StatelessWidget {
                 Expanded(child: Container(color: LightColors().surface)),
               ],
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: BalanceCard(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: BalanceCard(
+                onDeposit: () {},
+                onTransfer: () {},
+                onSavings: () {},
+                onMyQr: () {},
+              ),
             ),
           ],
         ),
       ),
-      const SliverPadding(
-        padding: EdgeInsets.only(bottom: 24, top: 12),
-        sliver: SliverToBoxAdapter(child: PromoBanner()),
+      SliverPadding(
+        padding: const EdgeInsets.only(bottom: 24, top: 12),
+        sliver: SliverToBoxAdapter(child: PromoBanner(onTap: () {})),
       ),
-      const SliverPadding(
-        padding: EdgeInsets.fromLTRB(16, 0, 20, 0),
-        sliver: SliverToBoxAdapter(child: FinanceGrid()),
+      SliverPadding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 20, 0),
+        sliver: SliverToBoxAdapter(
+          child: FinanceGrid(
+            onBills: () {},
+            onElectricity: () {},
+            onGold: () {},
+            onInsurance: () {},
+            onViewMore: () {},
+          ),
+        ),
       ),
-      const SliverPadding(
-        padding: EdgeInsets.symmetric(vertical: 24),
-        sliver: SliverToBoxAdapter(child: PromoCarousel()),
+      SliverPadding(
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        sliver: SliverToBoxAdapter(child: PromoCarousel(onMorePromo: () {})),
       ),
       const SliverToBoxAdapter(child: SizedBox(height: 200)),
     ],

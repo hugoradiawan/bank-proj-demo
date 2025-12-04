@@ -26,11 +26,14 @@ class SectionHeader extends StatelessWidget {
           ),
         ),
         if (actionText != null)
-          GestureDetector(
+          InkWell(
+            borderRadius: BorderRadius.circular(4),
+            splashColor: LightColors().primaryLight.withValues(alpha: 0.3),
             onTap: onActionTap,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                const SizedBox(width: 6),
                 Text(
                   actionText!,
                   style: theme.textTheme.bodyMedium?.copyWith(
@@ -39,11 +42,7 @@ class SectionHeader extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 2),
-                Icon(
-                  Icons.chevron_right,
-                  color: LightColors().info,
-                  size: 18,
-                ),
+                Icon(Icons.chevron_right, color: LightColors().info, size: 18),
               ],
             ),
           ),

@@ -12,6 +12,7 @@ import 'package:flutter/material.dart'
         FilledButton,
         FilledButtonThemeData,
         FontWeight,
+        InkRipple,
         InputDecorationTheme,
         OutlineInputBorder,
         RoundedRectangleBorder,
@@ -75,6 +76,7 @@ class AppTheme {
       colorScheme: colorScheme,
       scaffoldBackgroundColor: colors.surface,
       textTheme: textTheme,
+      splashFactory: InkRipple.splashFactory,
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: colorScheme.primary,

@@ -13,7 +13,7 @@ class AppBottomNavBar extends StatelessWidget {
   final ValueChanged<int> onTap;
 
   @override
-  Widget build(BuildContext context) => Padding(
+  Widget build(_) => Padding(
     padding: const EdgeInsets.only(bottom: 8),
     child: Column(
       mainAxisSize: MainAxisSize.min,

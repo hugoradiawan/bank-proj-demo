@@ -72,40 +72,43 @@ class BalanceCard extends StatelessWidget {
           ),
           Divider(color: colors.gray200, height: 1),
           Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                QuickActionButton(
-                  icon: PhosphorIcon(
-                    PhosphorIconsBold.paperPlaneTilt,
-                    color: colors.primary,
-                    size: 24,
+            child: Material(
+              type: MaterialType.transparency,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  QuickActionButton(
+                    icon: PhosphorIcon(
+                      PhosphorIconsBold.paperPlaneTilt,
+                      color: colors.primary,
+                      size: 24,
+                    ),
+                    label: 'Transfer',
+                    onTap: onTransfer,
                   ),
-                  label: 'Transfer',
-                  onTap: onTransfer,
-                ),
-                Container(width: 1, height: 32, color: colors.gray200),
-                QuickActionButton(
-                  icon: PhosphorIcon(
-                    PhosphorIconsBold.vault,
-                    color: colors.primary,
-                    size: 24,
+                  Container(width: 1, height: 32, color: colors.gray200),
+                  QuickActionButton(
+                    icon: PhosphorIcon(
+                      PhosphorIconsBold.vault,
+                      color: colors.primary,
+                      size: 24,
+                    ),
+                    label: 'Savings',
+                    badge: '5% p.a',
+                    onTap: onSavings,
                   ),
-                  label: 'Savings',
-                  badge: '5% p.a',
-                  onTap: onSavings,
-                ),
-                Container(width: 1, height: 32, color: colors.gray200),
-                QuickActionButton(
-                  icon: PhosphorIcon(
-                    PhosphorIconsBold.barcode,
-                    color: colors.primary,
-                    size: 24,
+                  Container(width: 1, height: 32, color: colors.gray200),
+                  QuickActionButton(
+                    icon: PhosphorIcon(
+                      PhosphorIconsBold.barcode,
+                      color: colors.primary,
+                      size: 24,
+                    ),
+                    label: 'My QR',
+                    onTap: onMyQr,
                   ),
-                  label: 'My QR',
-                  onTap: onMyQr,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
@@ -123,28 +126,32 @@ class _DepositButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final LightColors colors = LightColors();
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-        decoration: BoxDecoration(
-          color: colors.surfaceVariant,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: colors.primaryLight.withValues(alpha: 0.5)),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Icon(Icons.add_circle, color: colors.primary, size: 16),
-            const SizedBox(width: 4),
-            Text(
-              'Deposit',
-              style: theme.textTheme.labelSmall?.copyWith(
-                color: colors.primary,
-                fontWeight: FontWeight.w600,
+    return Material(
+      type: MaterialType.transparency,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: BorderSide(color: colors.primaryLight.withValues(alpha: 0.5)),
+      ),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(8),
+        splashColor: colors.primary.withValues(alpha: 0.3),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(Icons.add_circle, color: colors.primary, size: 16),
+              const SizedBox(width: 4),
+              Text(
+                'Deposit',
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: colors.primary,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
