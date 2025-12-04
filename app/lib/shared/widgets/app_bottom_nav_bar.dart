@@ -24,32 +24,42 @@ class AppBottomNavBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             _NavItem(
-              icon: PhosphorIconsBold.house,
+              icon: currentIndex == 0
+                  ? PhosphorIconsFill.house
+                  : PhosphorIconsBold.house,
               label: 'Home',
               isSelected: currentIndex == 0,
               onTap: () => onTap(0),
             ),
             _NavItem(
-              icon: PhosphorIconsBold.wallet,
+              icon: currentIndex == 1
+                  ? PhosphorIconsFill.coins
+                  : PhosphorIconsBold.coins,
               label: 'Finance',
               isSelected: currentIndex == 1,
               onTap: () => onTap(1),
             ),
             _NavItem(
-              icon: PhosphorIconsBold.qrCode,
+              icon: currentIndex == 2
+                  ? PhosphorIconsFill.qrCode
+                  : PhosphorIconsBold.qrCode,
               label: 'QRIS',
               isQris: true,
               isSelected: currentIndex == 2,
               onTap: () => onTap(2),
             ),
             _NavItem(
-              icon: PhosphorIconsBold.chartLineUp,
+              icon: currentIndex == 3
+                  ? PhosphorIconsFill.chartPieSlice
+                  : PhosphorIconsBold.chartPieSlice,
               label: 'Portfolio',
               isSelected: currentIndex == 3,
               onTap: () => onTap(3),
             ),
             _NavItem(
-              icon: PhosphorIconsBold.userCircle,
+              icon: currentIndex == 4
+                  ? PhosphorIconsFill.user
+                  : PhosphorIconsBold.user,
               label: 'Profile',
               isSelected: currentIndex == 4,
               onTap: () => onTap(4),
