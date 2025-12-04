@@ -16,7 +16,7 @@ class PromoBanner extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16),
-        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 16),
         decoration: BoxDecoration(
           gradient: colors.premiumGradient,
           borderRadius: BorderRadius.circular(20),

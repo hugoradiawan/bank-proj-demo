@@ -44,6 +44,7 @@ flutter:
           weight: 900
   assets:
     - assets/images/crown.webp
+    - assets/images/gold.webp
     - assets/images/insurance.webp
     - assets/images/bills.webp
     - assets/images/electricity.webp

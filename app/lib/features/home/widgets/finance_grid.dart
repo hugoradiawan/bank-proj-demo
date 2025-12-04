@@ -1,7 +1,5 @@
 import 'package:app/shared/widgets/widgets.dart';
-import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class FinanceGrid extends StatelessWidget {
   const FinanceGrid({
@@ -20,10 +18,7 @@ class FinanceGrid extends StatelessWidget {
   final VoidCallback? onViewMore;
 
   @override
-  Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
-
-    return Column(
+  Widget build(BuildContext context) => Column(
       children: <Widget>[
         SectionHeader(
           title: 'Finance',
@@ -32,40 +27,40 @@ class FinanceGrid extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FinanceItem(
-              icon: PhosphorIcon(
-                PhosphorIconsBold.shield,
-                color: colors.primary,
-                size: 24,
+            QuickActionButton(
+              icon: Image.asset(
+                'assets/images/insurance.webp',
+                width: 45,
+                height: 45,
               ),
               label: 'Insurance',
               onTap: onInsurance,
             ),
-            FinanceItem(
-              icon: PhosphorIcon(
-                PhosphorIconsBold.coins,
-                color: colors.gold,
-                size: 24,
+            QuickActionButton(
+              icon: Image.asset(
+                'assets/images/gold.webp',
+                width: 45,
+                height: 45,
               ),
               label: 'Gold',
               onTap: onGold,
             ),
-            FinanceItem(
-              icon: PhosphorIcon(
-                PhosphorIconsBold.receipt,
-                color: colors.info,
-                size: 24,
+            QuickActionButton(
+              icon: Image.asset(
+                'assets/images/bills.webp',
+                width: 45,
+                height: 45,
               ),
               label: 'Bills',
               onTap: onBills,
             ),
-            FinanceItem(
-              icon: PhosphorIcon(
-                PhosphorIconsBold.lightning,
-                color: colors.warning,
-                size: 24,
+            QuickActionButton(
+              icon: Image.asset(
+                'assets/images/electricity.webp',
+                width: 45,
+                height: 45,
               ),
               label: 'Electricity',
               onTap: onElectricity,
@@ -74,5 +69,4 @@ class FinanceGrid extends StatelessWidget {
         ),
       ],
     );
-  }
 }

@@ -1,3 +1,4 @@
+import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -27,12 +28,23 @@ class SectionHeader extends StatelessWidget {
         if (actionText != null)
           GestureDetector(
             onTap: onActionTap,
-            child: Text(
-              actionText!,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.primary,
-                fontWeight: FontWeight.w500,
-              ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  actionText!,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: LightColors().info,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(width: 2),
+                Icon(
+                  Icons.chevron_right,
+                  color: LightColors().info,
+                  size: 18,
+                ),
+              ],
             ),
           ),
       ],

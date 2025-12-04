@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
         child: const GreetingHeader(),
       ),
       _appBar(
-        heights: (200, 60),
+        heights: (178, 60),
         child: Stack(
           children: <Widget>[
             Column(
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
         sliver: SliverToBoxAdapter(child: FinanceGrid()),
       ),
       const SliverPadding(
-        padding: EdgeInsets.fromLTRB(16, 24, 0, 24),
+        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
         sliver: SliverToBoxAdapter(child: PromoCarousel()),
       ),
       const SliverToBoxAdapter(child: SizedBox(height: 200)),

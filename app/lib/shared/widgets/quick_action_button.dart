@@ -25,11 +25,11 @@ class QuickActionButton extends StatelessWidget {
           Stack(
             clipBehavior: Clip.none,
             children: <Widget>[
-              SizedBox(width: 40, height: 40, child: Center(child: icon)),
+              SizedBox(child: Center(child: icon)),
               if (badge != null)
                 Positioned(
-                  top: -2,
-                  right: -26,
+                  top: -7,
+                  right: -35,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 6,
@@ -51,10 +51,11 @@ class QuickActionButton extends StatelessWidget {
                 ),
             ],
           ),
+          const SizedBox(height: 4),
           Text(
             label,
-            style: theme.textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.w500,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
