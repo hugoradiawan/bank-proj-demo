@@ -1,0 +1,147 @@
+name: mondooli_app
+description: Flutter Meet monorepo workspace managed by Melos.
+version: 1.0.0
+publish_to: 'none'
+
+repository: https://github.com/hugoradiawan/mondooli
+
+environment:
+  sdk: ^3.10.0
+
+workspace:
+  - app
+  - core
+
+dev_dependencies:
+  melos: ^7.3.0
+  flutter_lints: ^6.0.0
+
+melos:
+  name: mondooli_app
+
+  packages:
+    - app/**
+    - features/**
+
+  command:
+    version:
+      linkToCommits: true
+      branch: master
+      workspaceChangelog: true
+
+    bootstrap:
+      environment:
+        sdk: ">=3.10.0 <4.0.0"
+        flutter: ">=3.38.0"
+      dependencies:
+        meta: any
+      runPubGetInParallel: false
+      hooks:
+        post: melos run gen
+
+  scripts:
+    # CODE GENERATION
+    gen:
+      description: Run build_runner in all packages
+      run: dart run build_runner build --delete-conflicting-outputs
+      exec:
+        concurrency: 1
+      packageFilters:
+        dependsOn: "build_runner"
+
+    gen:watch:
+      description: Run build_runner watch mode
+      run: dart run build_runner watch --delete-conflicting-outputs
+      exec:
+        concurrency: 1
+      packageFilters:
+        dependsOn: "build_runner"
+
+    # ANALYSIS & FORMATTING
+    analyze:
+      description: Analyze all packages
+      run: flutter analyze --no-fatal-infos
+      exec:
+        concurrency: 1
+
+    format:
+      description: Format all packages
+      run: dart format .
+      exec:
+        concurrency: 1
+
+    format:check:
+      description: Check formatting in all packages
+      run: dart format --set-exit-if-changed .
+      exec:
+        concurrency: 1
+
+    # TESTING
+    test:
+      description: Run tests in all packages
+      run: flutter test
+      exec:
+        concurrency: 1
+      packageFilters:
+        dirExists: test
+
+    test:coverage:
+      description: Run tests with coverage
+      run: flutter test --coverage
+      exec:
+        concurrency: 1
+      packageFilters:
+        dirExists: test
+
+    # CLEANING
+    clean:
+      description: Clean all packages
+      run: flutter clean
+      exec:
+        concurrency: 1
+      packageFilters:
+        flutter: true
+
+    gen:clean:
+      description: Deep clean including generated files
+      run: |
+        flutter clean
+        rm -rf .dart_tool
+        rm -rf build
+        rm -rf pubspec.lock
+      exec:
+        concurrency: 1
+
+    clean:cache:
+      description: Clean Dart pub cache (fixes kernel hash errors)
+      run: dart pub cache clean --force
+
+    # QUALITY CHECKS
+    quality:
+      description: Run all quality checks (format, analyze, test)
+      run: melos run format:check && melos run analyze && melos run test
+
+    # UTILITY
+    app:
+      description: Run the Flutter app
+      run: flutter run
+      exec:
+        concurrency: 1
+      packageFilters:
+        scope: "flutter_meet"
+
+    upgrade:
+      description: Upgrade dependencies in all packages
+      run: flutter pub upgrade
+      exec:
+        concurrency: 1
+      packageFilters:
+        flutter: true
+
+    outdated:
+      description: Check for outdated dependencies
+      run: flutter pub outdated
+      exec:
+        concurrency: 1
+      packageFilters:
+        flutter: true
