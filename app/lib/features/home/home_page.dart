@@ -10,11 +10,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) => CustomScrollView(
     slivers: <Widget>[
       SliverAppBar(
-        pinned: true,
         backgroundColor: LightColors().primary,
         elevation: 0,
         toolbarHeight: 0,
         expandedHeight: 85,
+        collapsedHeight: 30,
         flexibleSpace: const FlexibleSpaceBar(background: GreetingHeader()),
       ),
       SliverAppBar(
@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         toolbarHeight: 0,
         expandedHeight: 200,
+        collapsedHeight: 60,
         flexibleSpace: FlexibleSpaceBar(
           background: Stack(
             children: <Widget>[
