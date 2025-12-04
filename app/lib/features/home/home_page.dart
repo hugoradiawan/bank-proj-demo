@@ -9,43 +9,29 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => CustomScrollView(
     slivers: <Widget>[
-      SliverAppBar(
+      _appBar(
+        heights: (85, 30),
         backgroundColor: LightColors().primary,
-        elevation: 0,
-        toolbarHeight: 0,
-        expandedHeight: 85,
-        collapsedHeight: 30,
-        flexibleSpace: const FlexibleSpaceBar(background: GreetingHeader()),
+        child: const GreetingHeader(),
       ),
-      SliverAppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 0,
-        expandedHeight: 200,
-        collapsedHeight: 60,
-        flexibleSpace: FlexibleSpaceBar(
-          background: Stack(
-            children: <Widget>[
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Expanded(child: Container(color: LightColors().primary)),
-                  Expanded(child: Container(color: LightColors().surface)),
-                ],
-              ),
-              const BalanceCard(),
-            ],
-          ),
+      _appBar(
+        heights: (200, 60),
+        child: Stack(
+          children: <Widget>[
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Expanded(child: Container(color: LightColors().primary)),
+                Expanded(child: Container(color: LightColors().surface)),
+              ],
+            ),
+            const BalanceCard(),
+          ],
         ),
       ),
-      SliverPadding(
-        padding: const EdgeInsets.only(bottom: 24, top: 12),
-        sliver: SliverToBoxAdapter(
-          child: Container(
-            color: Colors.transparent,
-            child: const PromoBanner(),
-          ),
-        ),
+      const SliverPadding(
+        padding: EdgeInsets.only(bottom: 24, top: 12),
+        sliver: SliverToBoxAdapter(child: PromoBanner()),
       ),
       const SliverPadding(
         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -57,5 +43,18 @@ class HomePage extends StatelessWidget {
       ),
       const SliverToBoxAdapter(child: SizedBox(height: 200)),
     ],
+  );
+
+  SliverAppBar _appBar({
+    required (double, double) heights,
+    required Widget child,
+    Color? backgroundColor,
+  }) => SliverAppBar(
+    backgroundColor: backgroundColor ?? Colors.white,
+    elevation: 0,
+    toolbarHeight: 0,
+    expandedHeight: heights.$1,
+    collapsedHeight: heights.$2,
+    flexibleSpace: FlexibleSpaceBar(background: child),
   );
 }
