@@ -42,9 +42,6 @@ class _AppScaffoldState extends State<AppScaffold> {
         ),
       ),
     ),
-    floatingActionButton: QrisFab(
-      onPressed: () => setState(() => _currentIndex = 2),
-    ),
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
   );
 }

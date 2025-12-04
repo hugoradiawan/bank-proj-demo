@@ -14,34 +14,47 @@ class AppBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    padding: const EdgeInsets.only(bottom: 8),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        _NavItem(
-          icon: PhosphorIconsBold.house,
-          label: 'Home',
-          isSelected: currentIndex == 0,
-          onTap: () => onTap(0),
-        ),
-        _NavItem(
-          icon: PhosphorIconsBold.wallet,
-          label: 'Finance',
-          isSelected: currentIndex == 1,
-          onTap: () => onTap(1),
-        ),
-        const SizedBox(width: 56), // Space for FAB
-        _NavItem(
-          icon: PhosphorIconsBold.chartLineUp,
-          label: 'Portfolio',
-          isSelected: currentIndex == 3,
-          onTap: () => onTap(3),
-        ),
-        _NavItem(
-          icon: PhosphorIconsBold.userCircle,
-          label: 'Profile',
-          isSelected: currentIndex == 4,
-          onTap: () => onTap(4),
+        Divider(height: 1, color: LightColors().gray200),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            _NavItem(
+              icon: PhosphorIconsBold.house,
+              label: 'Home',
+              isSelected: currentIndex == 0,
+              onTap: () => onTap(0),
+            ),
+            _NavItem(
+              icon: PhosphorIconsBold.wallet,
+              label: 'Finance',
+              isSelected: currentIndex == 1,
+              onTap: () => onTap(1),
+            ),
+            _NavItem(
+              icon: PhosphorIconsBold.qrCode,
+              label: 'QRIS',
+              isQris: true,
+              isSelected: currentIndex == 2,
+              onTap: () => onTap(2),
+            ),
+            _NavItem(
+              icon: PhosphorIconsBold.chartLineUp,
+              label: 'Portfolio',
+              isSelected: currentIndex == 3,
+              onTap: () => onTap(3),
+            ),
+            _NavItem(
+              icon: PhosphorIconsBold.userCircle,
+              label: 'Profile',
+              isSelected: currentIndex == 4,
+              onTap: () => onTap(4),
+            ),
+          ],
         ),
       ],
     ),
@@ -54,18 +67,20 @@ class _NavItem extends StatelessWidget {
     required this.label,
     required this.isSelected,
     required this.onTap,
+    this.isQris = false,
   });
 
   final IconData icon;
   final String label;
   final bool isSelected;
+  final bool isQris;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final LightColors colors = LightColors();
-    final Color color = isSelected ? theme.colorScheme.primary : colors.gray400;
+    final Color color = isSelected ? colors.primary : colors.gray400;
 
     return GestureDetector(
       onTap: onTap,
@@ -74,55 +89,34 @@ class _NavItem extends StatelessWidget {
         width: 64,
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            PhosphorIcon(icon, color: color, size: 24),
-            const SizedBox(height: 4),
+            Container(
+              margin: EdgeInsets.only(
+                bottom: !isQris ? 0 : 4,
+                top: !isQris ? 0 : 6,
+              ),
+              padding: EdgeInsets.fromLTRB(8, 8, 8, isQris ? 8 : 0),
+              decoration: BoxDecoration(
+                color: isQris ? colors.primary : Colors.transparent,
+                shape: BoxShape.circle,
+              ),
+              child: PhosphorIcon(
+                icon,
+                color: isQris ? colors.surface : color,
+                size: 24,
+              ),
+            ),
+            if (!isQris) const SizedBox(height: 4),
             Text(
               label,
               style: theme.textTheme.labelSmall?.copyWith(
-                color: color,
-                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class QrisFab extends StatelessWidget {
-  const QrisFab({this.onPressed, super.key});
-
-  final VoidCallback? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
-    return SizedBox(
-      width: 64,
-      height: 64,
-      child: FloatingActionButton(
-        onPressed: onPressed,
-        elevation: 4,
-        backgroundColor: theme.colorScheme.primary,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const PhosphorIcon(
-              PhosphorIconsBold.qrCode,
-              color: Colors.white,
-              size: 24,
-            ),
-            const SizedBox(height: 2),
-            Text(
-              'QRIS',
-              style: theme.textTheme.labelSmall?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 10,
+                color: isQris ? colors.primary : color,
+                fontWeight: isQris
+                    ? FontWeight.w900
+                    : isSelected
+                    ? FontWeight.w600
+                    : FontWeight.w500,
               ),
             ),
           ],

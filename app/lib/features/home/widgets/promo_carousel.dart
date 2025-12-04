@@ -1,4 +1,5 @@
 import 'package:app/shared/widgets/widgets.dart';
+import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart';
 
 class PromoCarousel extends StatefulWidget {
@@ -27,9 +28,8 @@ class _PromoCarouselState extends State<PromoCarousel> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
+  Widget build(_) {
+    final LightColors colors = LightColors();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -58,20 +58,20 @@ class _PromoCarouselState extends State<PromoCarousel> {
             },
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 14),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List<Widget>.generate(
             _promos.length,
             (int index) => AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              width: _currentPage == index ? 24 : 8,
-              height: 8,
+              margin: const EdgeInsets.symmetric(horizontal: 2),
+              width: 5,
+              height: 5,
               decoration: BoxDecoration(
                 color: _currentPage == index
-                    ? theme.colorScheme.primary
-                    : theme.colorScheme.primary.withValues(alpha: 0.2),
+                    ? colors.primary
+                    : colors.primary.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
