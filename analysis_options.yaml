@@ -1,3 +1,5 @@
+include: package:flutter_lints/flutter.yaml
+
 analyzer:
   errors:
     invalid_use_of_internal_member: error
@@ -23,7 +25,26 @@ analyzer:
     unnecessary_raw_strings: error
     unused_import: error
     unused_shown_name: error
-include: package:flutter_lints/flutter.yaml
+  exclude:
+    # Generated files (Freezed, JSON Serializable, etc.)
+    - "lib/src/*.g.dart"
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.gen.dart"
+    - "**/*.config.dart"
+    - "**/generated/**"
+
+    # Build outputs
+    - "build/**"
+    - ".dart_tool/**"
+
+    # Platform-specific generated code
+    - "ios/**"
+    - "android/**"
+    - "linux/**"
+    - "macos/**"
+    - "windows/**"
+    - "web/**"
 
 linter:
   rules:

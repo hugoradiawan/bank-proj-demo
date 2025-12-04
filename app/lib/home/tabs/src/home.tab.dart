@@ -4,7 +4,7 @@ class _HomeTab extends StatelessWidget {
   const _HomeTab();
 
   @override
-  Widget build(_) => CustomScrollView(
+  Widget build(BuildContext context) => CustomScrollView(
     slivers: <Widget>[
       _appBar(
         heights: (85, 30),
@@ -40,7 +40,9 @@ class _HomeTab extends StatelessWidget {
       ),
       SliverPadding(
         padding: const EdgeInsets.only(bottom: 24, top: 12),
-        sliver: SliverToBoxAdapter(child: PromoBanner(onTap: () {})),
+        sliver: SliverToBoxAdapter(
+          child: PromoBanner(onTap: () => PremiumBridgeRoute().push(context)),
+        ),
       ),
       SliverPadding(
         padding: const EdgeInsets.fromLTRB(16, 0, 20, 0),

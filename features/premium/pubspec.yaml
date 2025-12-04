@@ -2,9 +2,11 @@ name: premium
 description: "A new Flutter package project."
 version: 0.0.1
 
+resolution: workspace
+
 environment:
-  sdk: ^3.10.1
-  flutter: ">=1.17.0"
+  sdk: ">=3.10.0 <4.0.0"
+  flutter: ">=3.38.0"
 
 dependencies:
   flutter:

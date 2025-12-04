@@ -25,6 +25,7 @@ import 'package:flutter/material.dart'
         Theme,
         ThemeData,
         Widget;
+import 'package:premium/route.dart';
 
 part 'src/home.tab.dart';
 part 'src/placeholder.tab.dart';
