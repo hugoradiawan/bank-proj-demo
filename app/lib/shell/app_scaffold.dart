@@ -32,9 +32,15 @@ class _AppScaffoldState extends State<AppScaffold> {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: _buildPage(_currentIndex),
-    bottomNavigationBar: AppBottomNavBar(
-      currentIndex: _currentIndex,
-      onTap: (int index) => setState(() => _currentIndex = index),
+    bottomNavigationBar: Container(
+      color: Colors.white,
+      child: SafeArea(
+        top: false,
+        child: AppBottomNavBar(
+          currentIndex: _currentIndex,
+          onTap: (int index) => setState(() => _currentIndex = index),
+        ),
+      ),
     ),
     floatingActionButton: QrisFab(
       onPressed: () => setState(() => _currentIndex = 2),

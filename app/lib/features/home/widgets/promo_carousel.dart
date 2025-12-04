@@ -11,7 +11,7 @@ class PromoCarousel extends StatefulWidget {
 }
 
 class _PromoCarouselState extends State<PromoCarousel> {
-  final PageController _pageController = PageController(viewportFraction: 0.85);
+  final PageController _pageController = PageController(viewportFraction: .875);
   int _currentPage = 0;
 
   static const List<_PromoData> _promos = <_PromoData>[
@@ -31,23 +31,28 @@ class _PromoCarouselState extends State<PromoCarousel> {
     final ThemeData theme = Theme.of(context);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        SectionHeader(
-          title: 'Promo',
-          actionText: 'More promo',
-          onActionTap: widget.onMorePromo,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: SectionHeader(
+            title: 'Promo',
+            actionText: 'More promo',
+            onActionTap: widget.onMorePromo,
+          ),
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 140,
+          height: 190,
           child: PageView.builder(
             controller: _pageController,
+            padEnds: false,
             onPageChanged: (int index) => setState(() => _currentPage = index),
             itemCount: _promos.length,
             itemBuilder: (BuildContext context, int index) {
               final _PromoData promo = _promos[index];
               return Padding(
-                padding: const EdgeInsets.only(right: 12),
+                padding: const EdgeInsets.only(left: 16),
                 child: PromoCard(title: promo.title, subtitle: promo.subtitle),
               );
             },

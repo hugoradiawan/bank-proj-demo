@@ -13,57 +13,39 @@ class AppBottomNavBar extends StatelessWidget {
   final ValueChanged<int> onTap;
 
   @override
-  Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
-
-    return Container(
-      decoration: BoxDecoration(
-        color: colors.surface,
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.06),
-            blurRadius: 20,
-            offset: const Offset(0, -4),
-          ),
-        ],
-      ),
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              _NavItem(
-                icon: PhosphorIconsBold.house,
-                label: 'Home',
-                isSelected: currentIndex == 0,
-                onTap: () => onTap(0),
-              ),
-              _NavItem(
-                icon: PhosphorIconsBold.wallet,
-                label: 'Finance',
-                isSelected: currentIndex == 1,
-                onTap: () => onTap(1),
-              ),
-              const SizedBox(width: 56), // Space for FAB
-              _NavItem(
-                icon: PhosphorIconsBold.chartLineUp,
-                label: 'Portfolio',
-                isSelected: currentIndex == 3,
-                onTap: () => onTap(3),
-              ),
-              _NavItem(
-                icon: PhosphorIconsBold.userCircle,
-                label: 'Profile',
-                isSelected: currentIndex == 4,
-                onTap: () => onTap(4),
-              ),
-            ],
-          ),
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        _NavItem(
+          icon: PhosphorIconsBold.house,
+          label: 'Home',
+          isSelected: currentIndex == 0,
+          onTap: () => onTap(0),
         ),
-      ),
-    );
-  }
+        _NavItem(
+          icon: PhosphorIconsBold.wallet,
+          label: 'Finance',
+          isSelected: currentIndex == 1,
+          onTap: () => onTap(1),
+        ),
+        const SizedBox(width: 56), // Space for FAB
+        _NavItem(
+          icon: PhosphorIconsBold.chartLineUp,
+          label: 'Portfolio',
+          isSelected: currentIndex == 3,
+          onTap: () => onTap(3),
+        ),
+        _NavItem(
+          icon: PhosphorIconsBold.userCircle,
+          label: 'Profile',
+          isSelected: currentIndex == 4,
+          onTap: () => onTap(4),
+        ),
+      ],
+    ),
+  );
 }
 
 class _NavItem extends StatelessWidget {
@@ -129,7 +111,11 @@ class QrisFab extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const PhosphorIcon(PhosphorIconsBold.qrCode, color: Colors.white, size: 24),
+            const PhosphorIcon(
+              PhosphorIconsBold.qrCode,
+              color: Colors.white,
+              size: 24,
+            ),
             const SizedBox(height: 2),
             Text(
               'QRIS',

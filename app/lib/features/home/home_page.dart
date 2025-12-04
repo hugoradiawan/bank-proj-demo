@@ -34,11 +34,11 @@ class HomePage extends StatelessWidget {
         sliver: SliverToBoxAdapter(child: PromoBanner()),
       ),
       const SliverPadding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.fromLTRB(16, 0, 20, 0),
         sliver: SliverToBoxAdapter(child: FinanceGrid()),
       ),
       const SliverPadding(
-        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 24),
         sliver: SliverToBoxAdapter(child: PromoCarousel()),
       ),
       const SliverToBoxAdapter(child: SizedBox(height: 200)),
