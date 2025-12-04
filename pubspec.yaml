@@ -1,7 +1,7 @@
 name: mondooli_app
 description: Flutter Meet monorepo workspace managed by Melos.
 version: 1.0.0
-publish_to: 'none'
+publish_to: "none"
 
 repository: https://github.com/hugoradiawan/mondooli
 
@@ -128,7 +128,7 @@ melos:
       exec:
         concurrency: 1
       packageFilters:
-        scope: "flutter_meet"
+        scope: "mondooli_app"
 
     upgrade:
       description: Upgrade dependencies in all packages
