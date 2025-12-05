@@ -1,5 +1,5 @@
 import 'package:app/home/presentation/pages/components/home.component.dart'
-    show BalanceCard, FinanceGrid, GreetingHeader, PromoBanner, PromoCarousel;
+    show BalanceCard, FinanceGrid, GreetingHeader, PromoCarousel;
 import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart'
     show
@@ -25,7 +25,7 @@ import 'package:flutter/material.dart'
         Theme,
         ThemeData,
         Widget;
-import 'package:premium/route.dart';
+import 'package:premium/components.dart' show PremiumBanner;
 
 part 'src/tabs/home.tab.dart';
 part 'src/tabs/placeholder.tab.dart';

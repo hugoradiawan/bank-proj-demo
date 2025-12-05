@@ -10,7 +10,8 @@ part 'premium.route.g.dart';
 
 @TypedGoRoute<PremiumBridgeRoute>(path: '/premium-bridge')
 class PremiumBridgeRoute extends GoRouteData with $PremiumBridgeRoute {
-  PremiumBridgeRoute();
+  factory PremiumBridgeRoute() => PremiumBridgeRoute._();
+  PremiumBridgeRoute._();
 
   @override
   Widget build(BuildContext context, GoRouterState state) => PremiumBridgePage(
@@ -20,7 +21,8 @@ class PremiumBridgeRoute extends GoRouteData with $PremiumBridgeRoute {
 
 @TypedGoRoute<RegistrationRoute>(path: '/registration')
 class RegistrationRoute extends GoRouteData with $RegistrationRoute {
-  RegistrationRoute();
+  factory RegistrationRoute() => RegistrationRoute._();
+  RegistrationRoute._();
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>

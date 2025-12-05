@@ -14,9 +14,7 @@ import 'package:flutter/material.dart'
         BoxShadow,
         BoxShape,
         BuildContext,
-        Clip,
         ClipOval,
-        ClipRRect,
         Color,
         Colors,
         Column,
@@ -27,7 +25,6 @@ import 'package:flutter/material.dart'
         Expanded,
         FontWeight,
         GestureDetector,
-        Hero,
         HitTestBehavior,
         Icon,
         IconData,
@@ -39,18 +36,15 @@ import 'package:flutter/material.dart'
         MainAxisSize,
         Material,
         MaterialType,
-        Matrix4,
         NetworkImage,
         Offset,
         Padding,
         PageController,
         PageView,
-        Positioned,
         RoundedRectangleBorder,
         Row,
         SafeArea,
         SizedBox,
-        Stack,
         State,
         StatefulWidget,
         StatelessWidget,
@@ -74,7 +68,6 @@ part 'src/deposit_button.dart';
 part 'src/finance_grid.dart';
 part 'src/greeting_header.dart';
 part 'src/nav_item.dart';
-part 'src/promo_banner.dart';
 part 'src/promo_card.dart';
 part 'src/promo_carousel.dart';
 
@@ -83,4 +76,3 @@ typedef GreetingHeader = _GreetingHeader;
 typedef PromoCarousel = _PromoCarousel;
 typedef AppBottomNavBar = _AppBottomNavBar;
 typedef BalanceCard = _BalanceCard;
-typedef PromoBanner = _PromoBanner;

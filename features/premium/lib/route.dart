@@ -1,1 +1,1 @@
-export 'src/route/premium.route.dart' show PremiumBridgeRoute, premiumRoutes;
+export 'src/route/premium.route.dart' show premiumRoutes;

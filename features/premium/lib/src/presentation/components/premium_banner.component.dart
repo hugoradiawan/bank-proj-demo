@@ -1,12 +1,41 @@
-// ignore because of it does used
-// ignore_for_file: unused_element_parameter
+import 'package:core/core.dart' show LightColors;
+import 'package:flutter/material.dart'
+    show
+        Alignment,
+        BorderRadius,
+        BoxDecoration,
+        BoxFit,
+        BuildContext,
+        Clip,
+        ClipRRect,
+        Colors,
+        Column,
+        Container,
+        CrossAxisAlignment,
+        EdgeInsets,
+        Expanded,
+        FontWeight,
+        Hero,
+        Image,
+        InkWell,
+        Material,
+        Matrix4,
+        Padding,
+        Positioned,
+        Row,
+        SizedBox,
+        Stack,
+        StatelessWidget,
+        Text,
+        Theme,
+        ThemeData,
+        Transform,
+        Widget;
+import 'package:premium/src/route/premium.route.dart';
+import 'package:shared/shared.dart' show PhosphorIcon, PhosphorIconsBold;
 
-part of '../home.component.dart';
-
-class _PromoBanner extends StatelessWidget {
-  const _PromoBanner({this.onTap, super.key});
-
-  final VoidCallback? onTap;
+class PremiumBanner extends StatelessWidget {
+  const PremiumBanner({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +110,7 @@ class _PromoBanner extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: onTap,
+                  onTap: () => PremiumBridgeRoute().push(context),
                   splashColor: colors.gold2.withValues(alpha: 0.4),
                   highlightColor: Colors.white10,
                 ),

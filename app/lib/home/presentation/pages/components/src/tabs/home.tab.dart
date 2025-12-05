@@ -38,11 +38,9 @@ class _HomeTab extends StatelessWidget {
           ],
         ),
       ),
-      SliverPadding(
-        padding: const EdgeInsets.only(bottom: 24, top: 12),
-        sliver: SliverToBoxAdapter(
-          child: PromoBanner(onTap: () => PremiumBridgeRoute().push(context)),
-        ),
+      const SliverPadding(
+        padding: EdgeInsets.only(bottom: 24, top: 12),
+        sliver: SliverToBoxAdapter(child: PremiumBanner()),
       ),
       SliverPadding(
         padding: const EdgeInsets.fromLTRB(16, 0, 20, 0),
