@@ -1,5 +1,4 @@
 import 'package:core/core.dart' show LightColors;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart'
     show
         Alignment,
@@ -12,13 +11,12 @@ import 'package:flutter/material.dart'
         Center,
         Column,
         Container,
+        CrossAxisAlignment,
         EdgeInsets,
         ElevatedButton,
         Expanded,
         FontWeight,
         Hero,
-        Icon,
-        Icons,
         Image,
         Matrix4,
         MediaQuery,
@@ -28,15 +26,19 @@ import 'package:flutter/material.dart'
         SafeArea,
         Scaffold,
         Size,
+        SizedBox,
         Stack,
         StatelessWidget,
         Text,
         TextStyle,
         Transform,
+        VoidCallback,
         Widget;
 import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:flutter_auto_size_text/flutter_auto_size_text.dart'
     show AutoSizeText;
+import 'package:premium/src/presentation/pages/premium_bridge/components/src/premium_bridge.component.dart'
+    show CheckListTile;
 import 'package:shared/shared.dart' show FloatingBackButton;
 
 class PremiumBridgePage extends StatelessWidget {
@@ -99,7 +101,7 @@ class PremiumBridgePage extends StatelessWidget {
                       minimumSize: const Size.fromHeight(50),
                       backgroundColor: colors.gold,
                     ),
-                    onPressed: () {},
+                    onPressed: onAccessPremiumNow,
                     child: Text(
                       'Access Premium Now',
                       style: TextStyle(
@@ -134,51 +136,20 @@ class PremiumBridgePage extends StatelessWidget {
                     Expanded(
                       flex: 3,
                       child: Column(
-                        children:
-                            <String>[
-                                  'Ad-free',
-                                  'Early access to new features',
-                                  'Premium customer service',
-                                  'Premium app look',
-                                  'Bigger transfer limit',
-                                  'Bigger saving limit',
-                                  'Cashback on every transaction',
-                                  'Unlimited service from app',
-                                  'Custom app icon',
-                                  'Higher saving from app',
-                                  'Birthday promo',
-                                  'More rewards',
-                                ]
-                                .map(
-                                  (String e) => Expanded(
-                                    child: Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.check_circle,
-                                          color: colors.surface,
-                                          size: 19,
-                                        ),
-                                        const SizedBox(width: 10),
-                                        Expanded(
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                              vertical: 3,
-                                            ),
-                                            child: AutoSizeText(
-                                              e,
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                color: colors.textOnPrimary
-                                                    .withValues(alpha: 0.9),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                )
-                                .toList(),
+                        children: <String>[
+                          'Ad-free',
+                          'Early access to new features',
+                          'Premium customer service',
+                          'Premium app look',
+                          'Bigger transfer limit',
+                          'Bigger saving limit',
+                          'Cashback on every transaction',
+                          'Unlimited service from app',
+                          'Custom app icon',
+                          'Higher saving from app',
+                          'Birthday promo',
+                          'More rewards',
+                        ].map(CheckListTile.new).toList(),
                       ),
                     ),
                   ],
