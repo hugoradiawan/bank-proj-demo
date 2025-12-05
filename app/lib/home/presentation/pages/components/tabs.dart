@@ -1,4 +1,4 @@
-import 'package:app/home/components/home.component.dart'
+import 'package:app/home/presentation/pages/components/home.component.dart'
     show BalanceCard, FinanceGrid, GreetingHeader, PromoBanner, PromoCarousel;
 import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart'
@@ -27,8 +27,8 @@ import 'package:flutter/material.dart'
         Widget;
 import 'package:premium/route.dart';
 
-part 'src/home.tab.dart';
-part 'src/placeholder.tab.dart';
+part 'src/tabs/home.tab.dart';
+part 'src/tabs/placeholder.tab.dart';
 
 typedef HomeTab = _HomeTab;
 typedef PlaceholderTab = _PlaceholderTab;

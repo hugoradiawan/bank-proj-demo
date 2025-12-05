@@ -1,4 +1,4 @@
-import 'package:app/home/tabs/tabs.dart' show HomeTab, PlaceholderTab;
+import 'package:app/home/presentation/pages/components/tabs.dart' show HomeTab, PlaceholderTab;
 import 'package:flutter/material.dart' show Widget;
 import 'package:shared/shared.dart'
     show PhosphorFlatIconData, PhosphorIconsBold, PhosphorIconsFill;

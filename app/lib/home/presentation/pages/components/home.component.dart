@@ -1,4 +1,4 @@
-import 'package:app/home/cubits/home_cubit.dart' show AppBottomNavBarCubit;
+import 'package:app/home/presentation/cubits/home_cubit.dart' show AppBottomNavBarCubit;
 import 'package:app/home/enums/tabs.enum.dart' show TabsEnum;
 import 'package:core/core.dart' show BlocBuilder, LightColors, ReadContext;
 import 'package:flutter/material.dart'

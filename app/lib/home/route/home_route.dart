@@ -1,4 +1,4 @@
-import 'package:app/home/home_page.dart' show HomePage;
+import 'package:app/home/presentation/pages/home_page.dart' show HomePage;
 import 'package:flutter/material.dart' show BuildContext, Widget;
 import 'package:go_router/go_router.dart'
     show GoRouteData, GoRouterHelper, GoRouterState, RouteBase, TypedGoRoute;

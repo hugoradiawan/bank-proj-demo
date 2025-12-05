@@ -1,4 +1,4 @@
-part of '../tabs.dart';
+part of '../../tabs.dart';
 
 class _PlaceholderTab extends StatelessWidget {
   const _PlaceholderTab({required this.title});

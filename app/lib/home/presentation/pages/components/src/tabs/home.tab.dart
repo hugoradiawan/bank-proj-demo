@@ -1,4 +1,4 @@
-part of '../tabs.dart';
+part of '../../tabs.dart';
 
 class _HomeTab extends StatelessWidget {
   const _HomeTab();
