@@ -11,7 +11,7 @@ class PremiumBridgeRoute extends GoRouteData with $PremiumBridgeRoute {
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const PremiumBridgePage();
+      PremiumBridgePage(onAccessPremiumNow: () {});
 }
 
 List<RouteBase> get premiumRoutes => $appRoutes;

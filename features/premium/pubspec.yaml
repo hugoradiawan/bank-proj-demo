@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^17.0.0
+  flutter_auto_size_text: ^4.1.0
+  core:
 
 dev_dependencies:
   flutter_test:

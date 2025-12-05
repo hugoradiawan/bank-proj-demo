@@ -57,16 +57,19 @@ class _PromoBanner extends StatelessWidget {
                     ],
                   ),
                 ),
-                Transform(
-                  transform: Matrix4.identity()
-                    ..rotateZ(0.28)
-                    ..scaleByDouble(2.1, 2.1, 1, 1),
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    'assets/images/crown.webp',
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.contain,
+                Hero(
+                  tag: 'premium_crown',
+                  child: Transform(
+                    transform: Matrix4.identity()
+                      ..rotateZ(0.28)
+                      ..scaleByDouble(2.1, 2.1, 1, 1),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      'assets/images/crown.webp',
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
               ],
