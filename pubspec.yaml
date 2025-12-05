@@ -44,10 +44,11 @@ melos:
   scripts:
     # CODE GENERATION
     gen:
-      description: Run build_runner in all packages
+      description: Run build_runner in all packages (sequential for dependency order)
       run: dart run build_runner build --delete-conflicting-outputs
       exec:
         concurrency: 1
+        orderDependents: true
       packageFilters:
         dependsOn: "build_runner"
 
@@ -105,9 +106,10 @@ melos:
         flutter: true
 
     gen:clean:
-      description: Deep clean including generated files
+      description: Deep clean including generated files and build_runner cache
       run: |
         flutter clean
+        rm -rf .dart_tool/build
         rm -rf .dart_tool
         rm -rf build
         rm -rf pubspec.lock
