@@ -1,0 +1,33 @@
+targets:
+  $default:
+    builders:
+      source_gen|combining_builder:
+        generate_for:
+          include:
+            - lib/**.dart
+          exclude:
+            - lib/src/route/**.dart
+        options:
+          build_extensions:
+            'lib/{{path}}/{{file}}.dart':
+              - 'lib/{{path}}/generated/{{file}}.g.dart'
+      premium|route_combiner:
+        generate_for:
+          - lib/src/route/**.dart
+      freezed|freezed:
+        enabled: true
+        options:
+          build_extensions:
+            'lib/{{path}}/{{file}}.dart': 'lib/{{path}}/generated/{{file}}.freezed.dart'
+
+builders:
+  route_combiner:
+    import: package:source_gen/builder.dart
+    builder_factories:
+      - combiningBuilder
+    build_extensions:
+      'lib/{{path}}/{{file}}.dart':
+        - 'lib/{{path}}/{{file}}.g.dart'
+    build_to: source
+    auto_apply: none
+

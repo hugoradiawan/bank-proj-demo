@@ -1,5 +1,5 @@
 import 'package:app/home/route/home_route.dart' show homeRoutes;
-import 'package:core/core.dart' show AppTheme, AppTypography;
+import 'package:core/core.dart' show AppTheme, Core;
 import 'package:flutter/material.dart'
     show
         AnnotatedRegion,
@@ -10,23 +10,12 @@ import 'package:flutter/material.dart'
         Widget,
         WidgetsFlutterBinding,
         runApp;
-import 'package:flutter/services.dart'
-    show SystemChrome, SystemUiMode, SystemUiOverlayStyle;
+import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:go_router/go_router.dart' show GoRouter, RouteBase;
 import 'package:premium/route.dart' show premiumRoutes;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppTypography.init();
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.transparent,
-      systemNavigationBarIconBrightness: Brightness.dark,
-    ),
-  );
   runApp(const MondooliApp());
 }
 
@@ -44,9 +33,11 @@ class MondooliApp extends StatelessWidget {
   @override
   Widget build(_) => AnnotatedRegion<SystemUiOverlayStyle>(
     value: _overlayStyle,
-    child: MaterialApp.router(
-      theme: AppTheme.light,
-      routerConfig: AppRouter.router,
+    child: Core.init(
+      child: MaterialApp.router(
+        theme: AppTheme.light,
+        routerConfig: AppRouter.router,
+      ),
     ),
   );
 }

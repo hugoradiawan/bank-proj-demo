@@ -11,5 +11,5 @@ abstract class UseCase<
 > {
   R repository(BuildContext context) => RepositoryProvider.of<R>(context);
 
-  Future<dynamic> call(BuildContext context, P params);
+  Stream<dynamic> call(BuildContext context, P params);
 }

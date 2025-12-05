@@ -1,0 +1,9 @@
+import 'package:dio/dio.dart' show Dio;
+import 'package:freezed_annotation/freezed_annotation.dart' show freezed;
+
+part 'http.state.freezed.dart';
+
+@freezed
+sealed class HttpState with _$HttpState {
+  const factory HttpState.initial(Dio client) = HttpInitial;
+}
