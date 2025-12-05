@@ -4,7 +4,15 @@ import 'package:app/home/presentation/cubits/home_cubit.dart'
 import 'package:app/home/presentation/pages/components/home.component.dart'
     show AppBottomNavBar;
 import 'package:core/core.dart' show BlocBuilder, BlocProvider;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        ColoredBox,
+        Colors,
+        FloatingActionButtonLocation,
+        SafeArea,
+        Scaffold,
+        StatelessWidget,
+        Widget;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

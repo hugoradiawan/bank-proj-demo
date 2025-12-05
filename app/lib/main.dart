@@ -1,6 +1,15 @@
 import 'package:app/home/route/home_route.dart' show homeRoutes;
 import 'package:core/core.dart' show AppTheme, AppTypography;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        AnnotatedRegion,
+        Brightness,
+        Colors,
+        MaterialApp,
+        StatelessWidget,
+        Widget,
+        WidgetsFlutterBinding,
+        runApp;
 import 'package:flutter/services.dart'
     show SystemChrome, SystemUiMode, SystemUiOverlayStyle;
 import 'package:go_router/go_router.dart' show GoRouter, RouteBase;

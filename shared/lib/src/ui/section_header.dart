@@ -1,5 +1,22 @@
 import 'package:core/core.dart' show LightColors;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        BorderRadius,
+        BuildContext,
+        FontWeight,
+        Icon,
+        Icons,
+        InkWell,
+        MainAxisAlignment,
+        MainAxisSize,
+        Row,
+        SizedBox,
+        StatelessWidget,
+        Text,
+        Theme,
+        ThemeData,
+        VoidCallback,
+        Widget;
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({

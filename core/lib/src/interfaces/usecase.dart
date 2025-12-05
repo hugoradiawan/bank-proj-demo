@@ -1,4 +1,5 @@
-import 'package:core/src/interfaces/data_source.dart';
+import 'package:core/src/interfaces/data_source.dart'
+    show LocalDataSource, RemoteDataSource;
 import 'package:core/src/interfaces/params.dart' show Params;
 import 'package:core/src/interfaces/repository.dart' show Repository;
 import 'package:flutter/material.dart' show BuildContext;
