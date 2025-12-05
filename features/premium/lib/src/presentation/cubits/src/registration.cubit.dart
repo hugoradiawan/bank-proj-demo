@@ -35,9 +35,9 @@ class _RegistrationCubit extends Cubit<_RegistrationState> {
   void togglePasswordVisibility() =>
       emit(state.copyWith(isPasswordVisible: !state.isPasswordVisible));
 
-  void submit() {
+  void submit(BuildContext context) {
     if (state.isValid) {
-      //TODO(me): Handle submission
+      SuccessRoute().pushReplacement(context);
     }
   }
 }

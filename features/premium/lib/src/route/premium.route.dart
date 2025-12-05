@@ -17,6 +17,8 @@ import 'package:premium/src/presentation/pages/premium_bridge/premium_bridge.pag
     show PremiumBridgePage;
 import 'package:premium/src/presentation/pages/registration/registration.page.dart'
     show RegistrationPage;
+import 'package:premium/src/presentation/pages/success/success.page.dart'
+    show SuccessPage;
 
 part 'premium.route.g.dart';
 
@@ -29,6 +31,16 @@ class PremiumBridgeRoute extends GoRouteData with $PremiumBridgeRoute {
   Widget build(BuildContext context, GoRouterState state) => PremiumBridgePage(
     onAccessPremiumNow: () => RegistrationRoute().pushReplacement(context),
   );
+}
+
+@TypedGoRoute<SuccessRoute>(path: '/success')
+class SuccessRoute extends GoRouteData with $SuccessRoute {
+  factory SuccessRoute() => SuccessRoute._();
+  SuccessRoute._();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SuccessPage();
 }
 
 @TypedGoRoute<RegistrationRoute>(path: '/registration')

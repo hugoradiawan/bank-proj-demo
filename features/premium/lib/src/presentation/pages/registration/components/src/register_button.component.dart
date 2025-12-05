@@ -30,7 +30,7 @@ class _RegisterButton extends StatelessWidget {
                     .read<RegistrationCubit>();
 
                 return FilledButton(
-                  onPressed: state.isValid ? cubit.submit : null,
+                  onPressed: state.isValid ? () => cubit.submit(context) : null,
                   style: FilledButton.styleFrom(
                     minimumSize: const Size.fromHeight(52),
                     backgroundColor: state.isValid

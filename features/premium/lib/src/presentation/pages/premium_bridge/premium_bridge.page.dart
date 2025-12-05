@@ -8,7 +8,6 @@ import 'package:flutter/material.dart'
         BoxFit,
         Brightness,
         BuildContext,
-        Center,
         Column,
         Container,
         CrossAxisAlignment,
@@ -85,7 +84,6 @@ class PremiumBridgePage extends StatelessWidget {
                 ),
               ),
             ),
-            const Center(child: Text('This is the Premium Bridge Page')),
             Positioned(
               bottom: 0,
               left: 0,
