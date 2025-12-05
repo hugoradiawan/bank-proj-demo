@@ -20,10 +20,8 @@ import 'package:flutter/material.dart'
         Icon,
         Icons,
         Image,
-        InkWell,
         Matrix4,
         MediaQuery,
-        Navigator,
         Padding,
         Positioned,
         RoundedRectangleBorder,
@@ -39,6 +37,7 @@ import 'package:flutter/material.dart'
 import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:flutter_auto_size_text/flutter_auto_size_text.dart'
     show AutoSizeText;
+import 'package:shared/shared.dart' show FloatingBackButton;
 
 class PremiumBridgePage extends StatelessWidget {
   const PremiumBridgePage({required this.onAccessPremiumNow, super.key});
@@ -61,25 +60,9 @@ class PremiumBridgePage extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(gradient: colors.premiumGradient2),
             ),
-            Positioned(
-              top: 50,
-              left: 20,
-              child: Container(
-                height: 42,
-                width: 42,
-                decoration: BoxDecoration(
-                  color: colors.gray500.withValues(alpha: .3),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: InkWell(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    color: colors.gray300,
-                    size: 15,
-                  ),
-                ),
-              ),
+            FloatingBackButton(
+              iconColor: colors.gray300,
+              backgroundColor: colors.gray500.withValues(alpha: .3),
             ),
             Positioned(
               top: 70,
