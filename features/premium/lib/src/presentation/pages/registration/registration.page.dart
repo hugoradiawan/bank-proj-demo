@@ -1,4 +1,4 @@
-import 'package:core/core.dart' show BlocProvider, LightColors;
+import 'package:core/core.dart' show LightColors;
 import 'package:flutter/material.dart'
     show
         AnnotatedRegion,
@@ -22,8 +22,6 @@ import 'package:flutter/material.dart'
         ThemeData,
         Widget;
 import 'package:flutter/services.dart' show SystemUiOverlayStyle;
-import 'package:premium/src/presentation/cubits/registration_cubit.dart'
-    show RegistrationCubit;
 import 'package:premium/src/presentation/pages/registration/components/registration.component.dart'
     show
         CountryField,
@@ -36,16 +34,6 @@ import 'package:shared/shared.dart' show FloatingBackButton;
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({super.key});
-
-  @override
-  Widget build(BuildContext context) => BlocProvider<RegistrationCubit>(
-    create: (_) => RegistrationCubit(),
-    child: const _RegistrationPageContent(),
-  );
-}
-
-class _RegistrationPageContent extends StatelessWidget {
-  const _RegistrationPageContent();
 
   @override
   Widget build(BuildContext context) {

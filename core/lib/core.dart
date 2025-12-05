@@ -1,5 +1,5 @@
 export 'package:flutter_bloc/flutter_bloc.dart'
-    show BlocBuilder, BlocProvider, Cubit, ReadContext;
+    show BlocBuilder, BlocProvider, Cubit, MultiBlocProvider, ReadContext, RepositoryProvider;
 
 export 'src/annotations/freezed.dart'
     show Default, Freezed, JsonKey, JsonSerializable, freezed;

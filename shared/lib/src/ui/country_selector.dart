@@ -18,6 +18,7 @@ import 'package:flutter/material.dart'
         GestureDetector,
         Icon,
         Icons,
+        Image,
         InkWell,
         ListTile,
         ListView,
@@ -32,7 +33,6 @@ import 'package:flutter/material.dart'
         SizedBox,
         StatelessWidget,
         Text,
-        TextStyle,
         Theme,
         ThemeData,
         ValueChanged,
@@ -41,20 +41,14 @@ import 'package:flutter/material.dart'
 import 'package:phosphor_flutter/phosphor_flutter.dart'
     show PhosphorIcon, PhosphorIconsBold;
 
-/// A country model for selection
 class Country {
-  const Country({
-    required this.name,
-    required this.code,
-    required this.flag,
-  });
+  const Country({required this.name, required this.code, required this.flag});
 
   final String name;
   final String code;
-  final String flag;
+  final String? flag;
 }
 
-// TODO(me): Replace with API call to fetch countries.
 const List<Country> kDefaultCountries = <Country>[
   Country(name: 'Indonesia', code: 'ID', flag: '🇮🇩'),
   Country(name: 'United States', code: 'US', flag: '🇺🇸'),
@@ -206,10 +200,13 @@ class _CountryPickerBottomSheet extends StatelessWidget {
                         return InkWell(
                           onTap: () => Navigator.of(context).pop(country),
                           child: ListTile(
-                            leading: Text(
-                              country.flag,
-                              style: const TextStyle(fontSize: 24),
-                            ),
+                            leading: country.flag != null
+                                ? Image.network(
+                                    country.flag!,
+                                    width: 24,
+                                    height: 24,
+                                  )
+                                : null,
                             title: Text(
                               country.name,
                               style: theme.textTheme.bodyMedium?.copyWith(

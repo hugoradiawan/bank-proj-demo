@@ -16,6 +16,7 @@ import 'package:premium/route.dart' show premiumRoutes;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Core.initialize();
   runApp(const MondooliApp());
 }
 

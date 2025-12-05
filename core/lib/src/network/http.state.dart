@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart' show Dio;
-import 'package:freezed_annotation/freezed_annotation.dart' show freezed;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'http.state.freezed.dart';
+part 'generated/http.state.freezed.dart';
 
 @freezed
 sealed class HttpState with _$HttpState {

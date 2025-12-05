@@ -54,8 +54,8 @@ class Core {
             BlocProvider<HttpCubit>(
               create: (_) => HttpCubit(
                 BaseOptions(
-                  connectTimeout: const Duration(milliseconds: 15000),
-                  receiveTimeout: const Duration(milliseconds: 15000),
+                  connectTimeout: const Duration(seconds: 30),
+                  receiveTimeout: const Duration(seconds: 30),
                 ),
               ),
             ),

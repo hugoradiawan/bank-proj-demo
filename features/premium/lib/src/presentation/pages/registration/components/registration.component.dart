@@ -1,6 +1,33 @@
 import 'package:core/core.dart' show BlocBuilder, LightColors, ReadContext;
 import 'package:flutter/material.dart'
-    show BorderRadius, BoxDecoration, BuildContext, Color, Column, Container, CrossAxisAlignment, EdgeInsets, FilledButton, FontWeight, GestureDetector, MainAxisSize, Padding, Positioned, Radius, RoundedRectangleBorder, Row, SafeArea, Size, SizedBox, StatelessWidget, Text, TextInputAction, TextInputType, Theme, ThemeData, Widget;
+    show
+        BorderRadius,
+        BoxDecoration,
+        BuildContext,
+        Color,
+        Column,
+        Container,
+        CrossAxisAlignment,
+        EdgeInsets,
+        FilledButton,
+        FontWeight,
+        GestureDetector,
+        MainAxisSize,
+        Padding,
+        Positioned,
+        Radius,
+        RoundedRectangleBorder,
+        Row,
+        SafeArea,
+        Size,
+        SizedBox,
+        StatelessWidget,
+        Text,
+        TextInputAction,
+        TextInputType,
+        Theme,
+        ThemeData,
+        Widget;
 import 'package:premium/src/presentation/cubits/registration_cubit.dart'
     show RegistrationCubit, RegistrationState;
 import 'package:shared/shared.dart'

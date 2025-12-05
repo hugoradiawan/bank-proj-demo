@@ -7,6 +7,7 @@ class _RegistrationState {
     this.country,
     this.password = '',
     this.isPasswordVisible = false,
+    this.countries = const <Country>[],
   });
 
   final String fullName;
@@ -14,6 +15,7 @@ class _RegistrationState {
   final Country? country;
   final String password;
   final bool isPasswordVisible;
+  final List<Country> countries;
 
   static final RegExp _emailRegex = RegExp(
     r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
@@ -53,12 +55,13 @@ class _RegistrationState {
     Country? country,
     String? password,
     bool? isPasswordVisible,
-  }) =>
-      _RegistrationState(
-        fullName: fullName ?? this.fullName,
-        email: email ?? this.email,
-        country: country ?? this.country,
-        password: password ?? this.password,
-        isPasswordVisible: isPasswordVisible ?? this.isPasswordVisible,
-      );
+    List<Country>? countries,
+  }) => _RegistrationState(
+    fullName: fullName ?? this.fullName,
+    email: email ?? this.email,
+    country: country ?? this.country,
+    password: password ?? this.password,
+    isPasswordVisible: isPasswordVisible ?? this.isPasswordVisible,
+    countries: countries ?? this.countries,
+  );
 }

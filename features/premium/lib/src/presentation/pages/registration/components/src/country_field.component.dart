@@ -23,11 +23,13 @@ class _CountryField extends StatelessWidget {
         const SizedBox(height: 8),
         BlocBuilder<RegistrationCubit, RegistrationState>(
           buildWhen: (RegistrationState prev, RegistrationState curr) =>
-              prev.country != curr.country,
+              prev.country != curr.country ||
+              prev.countries != curr.countries,
           builder: (BuildContext context, RegistrationState state) =>
               CountrySelector(
                 selectedCountry: state.country,
                 onCountrySelected: cubit.setCountry,
+                countries: state.countries,
               ),
         ),
       ],
