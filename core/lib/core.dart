@@ -1,3 +1,5 @@
+export 'package:cached_network_image/cached_network_image.dart'
+    show CachedNetworkImage;
 export 'package:flutter_bloc/flutter_bloc.dart'
     show
         BlocBuilder,

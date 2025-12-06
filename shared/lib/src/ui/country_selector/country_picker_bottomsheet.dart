@@ -63,10 +63,21 @@ class _CountryPickerBottomSheet extends StatelessWidget {
                           onTap: () => Navigator.of(context).pop(country),
                           child: ListTile(
                             leading: country.flag != null
-                                ? Image.network(
-                                    country.flag!,
+                                ? CachedNetworkImage(
+                                    imageUrl: country.flag!,
                                     width: 24,
                                     height: 24,
+                                    placeholder: (BuildContext context, String url) =>
+                                        SizedBox(
+                                      width: 24,
+                                      height: 24,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        color: colors.primary,
+                                      ),
+                                    ),
+                                    errorWidget: (BuildContext context, String url, Object error) =>
+                                        const SizedBox.shrink(),
                                   )
                                 : null,
                             title: Text(
