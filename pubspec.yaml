@@ -45,7 +45,7 @@ melos:
     # CODE GENERATION
     gen:
       description: Run build_runner in all packages (sequential for dependency order)
-      run: dart run build_runner build --delete-conflicting-outputs
+      run: fvm dart run build_runner build --delete-conflicting-outputs
       exec:
         concurrency: 1
         orderDependents: true
@@ -54,7 +54,7 @@ melos:
 
     gen:watch:
       description: Run build_runner watch mode
-      run: dart run build_runner watch --delete-conflicting-outputs
+      run: fvm dart run build_runner watch --delete-conflicting-outputs
       exec:
         concurrency: 1
       packageFilters:
@@ -63,26 +63,26 @@ melos:
     # ANALYSIS & FORMATTING
     analyze:
       description: Analyze all packages
-      run: flutter analyze --no-fatal-infos
+      run: fvm flutter analyze --no-fatal-infos
       exec:
         concurrency: 1
 
     format:
       description: Format all packages
-      run: dart format .
+      run: fvm dart format .
       exec:
         concurrency: 1
 
     format:check:
       description: Check formatting in all packages
-      run: dart format --set-exit-if-changed .
+      run: fvm dart format --set-exit-if-changed .
       exec:
         concurrency: 1
 
     # TESTING
     test:
       description: Run tests in all packages
-      run: flutter test
+      run: fvm flutter test
       exec:
         concurrency: 1
       packageFilters:
@@ -90,7 +90,7 @@ melos:
 
     test:coverage:
       description: Run tests with coverage
-      run: flutter test --coverage
+      run: fvm flutter test --coverage
       exec:
         concurrency: 1
       packageFilters:
@@ -99,7 +99,7 @@ melos:
     # CLEANING
     clean:
       description: Clean all packages
-      run: flutter clean
+      run: fvm flutter clean
       exec:
         concurrency: 1
       packageFilters:
@@ -108,7 +108,7 @@ melos:
     gen:clean:
       description: Deep clean including generated files and build_runner cache
       run: |
-        flutter clean
+        fvm flutter clean
         rm -rf .dart_tool/build
         rm -rf .dart_tool
         rm -rf build
@@ -118,7 +118,7 @@ melos:
 
     clean:cache:
       description: Clean Dart pub cache (fixes kernel hash errors)
-      run: dart pub cache clean --force
+      run: fvm dart pub cache clean --force
 
     # QUALITY CHECKS
     quality:
@@ -128,15 +128,15 @@ melos:
     # UTILITY
     app:
       description: Run the Flutter app
-      run: flutter run
+      run: fvm flutter run
       exec:
         concurrency: 1
       packageFilters:
-        scope: "mondooli_app"
+        scope: "app"
 
     upgrade:
       description: Upgrade dependencies in all packages
-      run: flutter pub upgrade
+      run: fvm flutter pub upgrade
       exec:
         concurrency: 1
       packageFilters:
@@ -144,8 +144,16 @@ melos:
 
     outdated:
       description: Check for outdated dependencies
-      run: flutter pub outdated
+      run: fvm flutter pub outdated
       exec:
         concurrency: 1
       packageFilters:
         flutter: true
+
+    build:apk:
+      description: Build a release APK for the main app package
+      run: fvm flutter build apk --release
+      exec:
+        concurrency: 1
+      packageFilters:
+        scope: "app"

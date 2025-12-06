@@ -401,9 +401,9 @@ MultiBlocProvider(
 - **Repository**: `https://github.com/hugoradiawan/mondooli` (branch/tag: `main`).
 - **Prototype placeholder**: _Embed Figma/Loom link here once recording is ready._
 - **Run locally**
-   1. `melos bootstrap`
-   2. `cd app && flutter pub get`
-   3. `flutter run -d <emulator>` (Android or iOS — portrait only)
+   1. `fvm use`
+   2. `melos bootstrap`
+   3. `melos run app` (Android or iOS — portrait only)
 - **Credentials/Notes**: none required; API is public. Update `.env` only if new services are added.
 - **Submit to**: `novistya.rahmawati@mondooli.com` with deck + repo link per brief instructions.
 
