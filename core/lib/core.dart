@@ -7,6 +7,7 @@ export 'package:flutter_bloc/flutter_bloc.dart'
         ReadContext,
         RepositoryProvider;
 
+export 'package:nested/nested.dart' show SingleChildWidget;
 export 'src/annotations/freezed.dart'
     show Default, Freezed, JsonKey, JsonSerializable, freezed;
 export 'src/initialize.dart' show Core;
