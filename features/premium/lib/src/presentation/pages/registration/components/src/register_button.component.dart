@@ -35,9 +35,11 @@ class _RegisterButton extends StatelessWidget {
                     minimumSize: const Size.fromHeight(52),
                     backgroundColor: state.isValid
                         ? colors.primary
-                        : colors.primary.withOpacity(0.5),
+                        : colors.primary.withValues(alpha: 0.5),
                     foregroundColor: colors.textOnPrimary,
-                    disabledBackgroundColor: colors.primary.withOpacity(0.5),
+                    disabledBackgroundColor: colors.primary.withValues(
+                      alpha: 0.5,
+                    ),
                     disabledForegroundColor: colors.textOnPrimary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
