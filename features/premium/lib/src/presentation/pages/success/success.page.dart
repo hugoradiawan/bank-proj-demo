@@ -1,17 +1,23 @@
-import 'package:core/core.dart' show LightColors;
+import 'dart:math' as math;
+
+import 'package:confetti/confetti.dart' show ConfettiWidget;
+import 'package:core/core.dart' show BlocBuilder, LightColors;
 import 'package:flutter/material.dart'
     show
+        Align,
         Alignment,
         BorderRadius,
         BoxDecoration,
         BoxShape,
         BuildContext,
         Center,
+        Color,
         Column,
         Container,
         EdgeInsets,
         FilledButton,
         FontWeight,
+        IgnorePointer,
         MainAxisSize,
         MediaQuery,
         Navigator,
@@ -30,6 +36,8 @@ import 'package:flutter/material.dart'
         Theme,
         ThemeData,
         Widget;
+import 'package:premium/src/presentation/cubits/success_confetti_cubit.dart'
+    show SuccessConfettiCubit, SuccessConfettiState;
 import 'package:shared/shared.dart' show PhosphorIcon, PhosphorIconsBold;
 
 class SuccessPage extends StatelessWidget {
@@ -45,6 +53,30 @@ class SuccessPage extends StatelessWidget {
       backgroundColor: colors.surface,
       body: Stack(
         children: <Widget>[
+          BlocBuilder<SuccessConfettiCubit, SuccessConfettiState>(
+            builder: (BuildContext context, SuccessConfettiState state) =>
+                IgnorePointer(
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: ConfettiWidget(
+                      confettiController: state.controller,
+                      blastDirection: math.pi / 2,
+                      emissionFrequency: .04,
+                      numberOfParticles: 25,
+                      maxBlastForce: 8,
+                      minBlastForce: 4,
+                      gravity: .015,
+                      colors: <Color>[
+                        colors.primary,
+                        colors.primaryLight,
+                        colors.success,
+                        colors.warning,
+                        colors.gray400,
+                      ],
+                    ),
+                  ),
+                ),
+          ),
           SafeArea(
             child: Center(
               child: Padding(

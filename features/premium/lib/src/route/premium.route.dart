@@ -12,7 +12,9 @@ import 'package:premium/src/domain/data_sources/country/country.local.datasource
 import 'package:premium/src/domain/data_sources/country/country.remote.datasource.dart';
 import 'package:premium/src/domain/repositories/country.repository.dart';
 import 'package:premium/src/presentation/cubits/registration_cubit.dart'
-    show RegistrationCubit;
+  show RegistrationCubit;
+import 'package:premium/src/presentation/cubits/success_confetti_cubit.dart'
+  show SuccessConfettiCubit;
 import 'package:premium/src/presentation/pages/premium_bridge/premium_bridge.page.dart'
     show PremiumBridgePage;
 import 'package:premium/src/presentation/pages/registration/registration.page.dart'
@@ -40,7 +42,10 @@ class SuccessRoute extends GoRouteData with $SuccessRoute {
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const SuccessPage();
+      BlocProvider<SuccessConfettiCubit>(
+        create: (_) => SuccessConfettiCubit(),
+        child: const SuccessPage(),
+      );
 }
 
 @TypedGoRoute<RegistrationRoute>(path: '/registration')
