@@ -334,10 +334,10 @@ style: |
 
 ---
 ## Submission Package & Runbook
-- **Repository**: [Source Code (Google Drive)](https://drive.google.com/file/d/1LQN5qyZoWR_z8G8Jy4eAAgyLJp2GcXXX/view?usp=drive_link)
-- **APK Download**: [APK File (Google Drive)](https://drive.google.com/file/d/1sr6v7ZBuvtd-XpiheDW4UJBkmlnM1FTG/view?usp=drive_link)
+- **Repository**: [Source Code (Google Drive)](https://drive.google.com/file/d/1cLkV0a-KULse2tsTvX0b2a9RdD4hSz0C/view?usp=drive_link)
+- **APK Download**: [APK File (Google Drive)](https://drive.google.com/file/d/1JBMRxOQYfd4vn_ZgMXmsGE-Nf0l5P-0T/view?usp=drive_link)
 - **Prototype placeholder**: _Embed Figma/Loom link here once recording is ready._
-- **APK Size**: ~50 MB raw APK; estimated ~20 MB on Google Play (AAB + delivery optimization) and ~40 MB on App Store.
+- **APK Size**: ~51 MB raw APK; estimated ~20 MB on Google Play (AAB + delivery optimization) and ~40 MB on App Store.
 - **Run locally**
    1. `fvm use`
    2. `melos bootstrap`
