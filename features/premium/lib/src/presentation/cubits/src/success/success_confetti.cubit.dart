@@ -1,4 +1,4 @@
-part of '../success_confetti_cubit.dart';
+part of '../../success_confetti_cubit.dart';
 
 class _SuccessConfettiCubit extends Cubit<_SuccessConfettiState> {
   _SuccessConfettiCubit()

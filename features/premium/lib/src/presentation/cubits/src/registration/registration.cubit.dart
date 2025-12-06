@@ -1,4 +1,4 @@
-part of '../registration_cubit.dart';
+part of '../../registration_cubit.dart';
 
 class _RegistrationCubit extends Cubit<_RegistrationState> {
   _RegistrationCubit(BuildContext context) : super(const _RegistrationState()) {

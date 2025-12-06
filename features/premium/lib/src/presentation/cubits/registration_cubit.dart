@@ -5,8 +5,8 @@ import 'package:premium/src/domain/usecases/fetch_country_with_flag.dart';
 import 'package:premium/src/route/premium.route.dart' show SuccessRoute;
 import 'package:shared/shared.dart' show Country;
 
-part 'src/registration.cubit.dart';
-part 'src/registration.state.dart';
+part 'src/registration/registration.cubit.dart';
+part 'src/registration/registration.state.dart';
 
 typedef RegistrationCubit = _RegistrationCubit;
 typedef RegistrationState = _RegistrationState;
