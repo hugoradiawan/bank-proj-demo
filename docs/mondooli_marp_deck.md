@@ -326,7 +326,8 @@ style: |
 - Colors + gradients centralized in `LightColors`; premium + base palettes toggled via `AppTheme`
 - Typography: bundled Figtree font files (`app/assets/fonts/Figtree`) + GoogleFonts fallback
 - State management: `flutter_bloc` cubits for nav + network (`AppBottomNavBarCubit`, `HttpCubit`)
-- Tooling: `melos`, `build_runner`, `freezed`, `json_serializable`, `go_router_builder`
+- Linting: repo-level `analysis_options.yaml` cranks Flutter lints to production-ready strictness (e.g., `always_specify_types`, `unused_import` as errors) to lock in code quality.
+- Tooling: `melos`, `build_runner`, `freezed`, `json_serializable`, `go_router_builder`, all behind `fvm` so every script pins the same Flutter version.
 - Platform targets: Android + iOS (Gradle, Xcode configs already in repo)
 ---
 ## Core Initialization Snapshot
