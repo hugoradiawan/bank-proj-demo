@@ -47,6 +47,8 @@ class MondooliApp extends StatelessWidget {
 class AppRouter {
   AppRouter._();
 
-  static GoRouter get router =>
-      GoRouter(routes: <RouteBase>[...premiumRoutes, ...homeRoutes]);
+  static final GoRouter router = GoRouter(
+    initialLocation: '/',
+    routes: <RouteBase>[...premiumRoutes, ...homeRoutes],
+  );
 }
