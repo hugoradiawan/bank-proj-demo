@@ -11,11 +11,13 @@ class RegistrationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppColors colors = context.colors;
     final ThemeData theme = Theme.of(context);
+    final bool isDarkMode = theme.brightness == Brightness.dark;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarIconBrightness: Brightness.dark,
+      value: SystemUiOverlayStyle(
+        statusBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
+        systemNavigationBarIconBrightness:
+            isDarkMode ? Brightness.light : Brightness.dark,
       ),
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),

@@ -13,12 +13,12 @@ class MondooliApp extends StatelessWidget {
 
   @override
   Widget build(_) => Core.init(
-        builder: (BuildContext context, ThemeMode themeMode) => MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.light,
-          darkTheme: AppTheme.dark,
-          themeMode: themeMode,
-          routerConfig: AppRouter.router,
-        ),
-      );
+    builder: (BuildContext context, ThemeMode themeMode) => MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: themeMode,
+      routerConfig: AppRouter.router,
+    ),
+  );
 }
