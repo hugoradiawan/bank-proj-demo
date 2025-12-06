@@ -23,12 +23,12 @@ class PremiumBridgePage extends StatelessWidget {
         ? screenSize.width * 0.35
         : screenSize.width * 0.42;
 
-    final double contentTop = isTablet ? 280 : 240;
+    final double contentTop = isTablet ? 200 : 240;
     final double contentWidth = isTablet
         ? (screenSize.width * 0.55).clamp(0, 500)
         : screenSize.width * 0.7;
     final double contentHeight = isTablet
-        ? screenSize.height * 0.50
+        ? screenSize.height * 0.60
         : screenSize.height * 0.54;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -121,13 +121,13 @@ class PremiumBridgePage extends StatelessWidget {
                         'More Benefits,\nMore Fun!',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: isTablet ? 36 : 30,
+                          fontSize: isTablet ? 48 : 30,
                           color: colors.gold,
                         ),
                       ),
                     ),
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: Column(
                         children: <String>[
                           'Ad-free',
@@ -142,7 +142,7 @@ class PremiumBridgePage extends StatelessWidget {
                           'Higher saving from app',
                           'Birthday promo',
                           'More rewards',
-                        ].map(CheckListTile.new).toList(),
+                        ].map((String text) => CheckListTile(text, isTablet: isTablet)).toList(),
                       ),
                     ),
                   ],
