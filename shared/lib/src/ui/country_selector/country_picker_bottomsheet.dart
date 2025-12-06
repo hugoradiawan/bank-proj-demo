@@ -24,7 +24,6 @@ class _CountryPickerBottomSheet extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            // Handle bar
             Center(
               child: Container(
                 width: 40,
@@ -36,7 +35,6 @@ class _CountryPickerBottomSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            // Title
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -48,7 +46,6 @@ class _CountryPickerBottomSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            // Country list
             Expanded(
               child: countries.isEmpty
                   ? Center(
