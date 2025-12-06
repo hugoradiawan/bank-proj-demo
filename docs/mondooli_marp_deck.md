@@ -90,13 +90,13 @@ style: |
    .screens img {
       width: 100%;
       height: auto;
-      max-height: 220px;
+      max-height: 360px;
       object-fit: contain;
       border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.28);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      background: rgba(255,255,255,0.08);
-      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.24);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.12);
+      padding: 8px;
    }
    .placeholder {
       border: 2px dashed rgba(255,255,255,0.5);
@@ -127,51 +127,6 @@ style: |
       font-size: 12px;
       color: rgba(255,255,255,0.7);
    }
----
-
-## Screen Gallery · Success State
-<div class="split">
-   <div class="copy">
-      <ul>
-         <li>`SuccessPage` reinforces completion with celebratory iconography and timeline messaging.</li>
-         <li>FilledButton routes users back home while state resets premium CTA.</li>
-         <li>Layout mirrors design spec (80px badge, rounded bottom sheet) and supports dark nav bar overlays.</li>
-      </ul>
-   </div>
-   <div class="visual">
-      <div class="screens">
-         <div class="placeholder">
-            Insert Success confirmation capture
-            <small>File: `features/premium/lib/src/presentation/pages/success/success.page.dart`</small>
-         </div>
-      </div>
-   </div>
-</div>
-
----
-## Screen Gallery · Registration States
-<div class="split">
-   <div class="copy">
-      <ul>
-         <li>Form validates name, email, country, and password complexity inline.</li>
-         <li>Dynamic `CountrySelector` pulls REST Countries API data with caching failover.</li>
-         <li>Checklist educates users on password policy before submission.</li>
-      </ul>
-   </div>
-   <div class="visual">
-      <div class="screens">
-         <div class="placeholder">
-            Insert Registration (blank) capture
-            <small>Component: `registration.component.dart`</small>
-         </div>
-         <div class="placeholder">
-            Insert Registration (filled + CTA active) capture
-            <small>Show success-ready state</small>
-         </div>
-      </div>
-   </div>
-</div>
-
 ---
 
 <!-- _class: title-slide -->
@@ -214,7 +169,6 @@ style: |
 - **Typography**: Google-hosted **Figtree** (weights 300–900) registered under `app/assets/fonts/Figtree`.
 - **Icons**: Phosphor icon set mirrors Mondooli glyph system; 3D embellishments aligned with “Thiings” pack from design brief.
 - **Spacing/Elevation**: reusable padding constants + HighlightTileTheme ensure consistent card radii and shadows.
-- Any deviations from the design pack are documented inline (e.g., gradient backgrounds on bridge slide) for reviewer context.
 
 ---
 ## Hiring Panel Snapshot
@@ -239,6 +193,27 @@ style: |
    </div>
 </div>
 
+## Screen Gallery · Registration States
+<div class="split">
+   <div class="copy">
+      <ul>
+         <li>Registration form stays consistent with light surfaces and icon-leading inputs.</li>
+         <li>Password checklist flips to Mondooli green as soon as each rule is satisfied.</li>
+         <li>CTA state progresses from disabled to primary once all validations (including dynamic country data) pass.</li>
+      </ul>
+   </div>
+   <div class="visual">
+      <div class="screens">
+         <figure>
+            <img src="images/registration1.png" alt="Registration form empty state with disabled CTA" />
+         </figure>
+         <figure>
+            <img src="images/regisration2.png" alt="Registration form completed state with active CTA" />
+         </figure>
+      </div>
+   </div>
+</div>
+
 ---
 ## Screen Gallery · Home Experience
 <div class="split">
@@ -251,10 +226,12 @@ style: |
    </div>
    <div class="visual">
       <div class="screens">
-         <div class="placeholder">
-            Insert Homescreen capture (device frame ok)
-            <small>Source: `app/lib/home/presentation/pages/home_page.dart`</small>
-         </div>
+            <figure>
+               <img src="images/home1.png" alt="Home greeting state with balance card and quick actions" />
+            </figure>
+            <figure>
+               <img src="images/home2.png" alt="Home hero banner promoting premium upgrade" />
+            </figure>
       </div>
    </div>
 </div>
@@ -287,10 +264,9 @@ style: |
    </div>
    <div class="visual">
       <div class="screens">
-         <div class="placeholder">
-            Insert Premium Bridge screen capture
-            <small>File: `features/premium/lib/src/presentation/pages/premium_bridge/premium_bridge.page.dart`</small>
-         </div>
+        <figure>
+          <img src="images/premium.png" alt="Premium bridge hero with crown illustration and CTA" />
+        </figure>
       </div>
    </div>
 </div>
@@ -313,10 +289,9 @@ style: |
    </div>
    <div class="visual">
       <div class="screens">
-         <div class="placeholder">
-            Insert Success page capture
-            <small>File: `features/premium/lib/src/presentation/pages/success/success.page.dart`</small>
-         </div>
+        <figure>
+          <img src="images/success.png" alt="Registration success confirmation with confetti animation" />
+        </figure>
       </div>
    </div>
 </div>
@@ -357,30 +332,6 @@ MultiBlocProvider(
 - Responses cached locally through `CountryLocalDataSourceImpl` + `SharedPreferencesService` for offline resilience.
 - Registration cubit consumes normalized `CountryModel` entities, keeping presentation layer decoupled from API schema.
 - Error handling: network faults surface inline helper text, while analytics event logs feed future experimentation.
-
----
-## Screens That Sell (for Recruiters)
-<div class="split">
-   <div class="copy">
-      <ul>
-         <li>Home tab (`home/presentation/pages/home_page.dart`) stitches GreetingHeader, BalanceCard, PromoCarousel.</li>
-         <li>Bottom navigation driven by `AppBottomNavBarCubit` + `TabsEnum`.</li>
-         <li>Premium CTA surfaced contextually across hero + quick actions.</li>
-      </ul>
-   </div>
-   <div class="visual">
-      <div class="screens">
-         <div class="placeholder">
-            Insert Homescreen hero capture with banner visible
-            <small>Highlight: “More Benefit, More Fun” CTA entry point</small>
-         </div>
-         <div class="placeholder">
-            Insert All-screen collage / prototype link preview
-            <small>Attach Figma or Loom link in submission</small>
-         </div>
-      </div>
-   </div>
-</div>
 
 ---
 <!-- _class: premium-slide -->

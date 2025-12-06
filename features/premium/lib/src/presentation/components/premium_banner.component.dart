@@ -110,8 +110,7 @@ class PremiumBanner extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  // onTap: () => PremiumBridgeRoute().push(context),
-                  onTap: () => SuccessRoute().push(context),
+                  onTap: () => PremiumBridgeRoute().push(context),
                   splashColor: colors.gold2.withValues(alpha: 0.4),
                   highlightColor: Colors.white10,
                 ),

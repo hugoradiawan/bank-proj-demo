@@ -36,6 +36,7 @@ class MondooliApp extends StatelessWidget {
     value: _overlayStyle,
     child: Core.init(
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
         routerConfig: AppRouter.router,
       ),
