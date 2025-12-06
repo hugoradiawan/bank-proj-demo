@@ -157,3 +157,19 @@ melos:
         concurrency: 1
       packageFilters:
         scope: "app"
+
+    icons:
+      description: Generate app icons using icons_launcher
+      run: fvm dart run icons_launcher:create
+      exec:
+        concurrency: 1
+      packageFilters:
+        scope: "app"
+
+    splash:
+      description: Generate splash screen using flutter_native_splash
+      run: fvm dart run flutter_native_splash:create
+      exec:
+        concurrency: 1
+      packageFilters:
+        scope: "app"
