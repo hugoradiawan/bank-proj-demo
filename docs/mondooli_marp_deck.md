@@ -334,7 +334,8 @@ style: |
 
 ---
 ## Submission Package & Runbook
-- **Repository**: `https://github.com/hugoradiawan/mondooli` (due to confidentiality need to request for access).
+- **Repository**: [Source Code (Google Drive)](https://drive.google.com/file/d/1LQN5qyZoWR_z8G8Jy4eAAgyLJp2GcXXX/view?usp=drive_link)
+- **APK Download**: [APK File (Google Drive)](https://drive.google.com/file/d/1sr6v7ZBuvtd-XpiheDW4UJBkmlnM1FTG/view?usp=drive_link)
 - **Prototype placeholder**: _Embed Figma/Loom link here once recording is ready._
 - **APK Size**: ~50 MB raw APK; estimated ~20 MB on Google Play (AAB + delivery optimization) and ~40 MB on App Store.
 - **Run locally**
