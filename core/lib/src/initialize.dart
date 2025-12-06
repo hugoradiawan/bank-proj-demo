@@ -7,6 +7,7 @@ import 'package:core/src/theme/theme_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocBuilder;
 
 class Core {
   Core._();
@@ -37,31 +38,34 @@ class Core {
     );
   }
 
-  static Widget init({required Widget child}) =>
-      AnnotatedRegion<SystemUiOverlayStyle>(
-        value: _overlayStyle,
-        child: MultiBlocProvider(
-          // can't import the type SingleChildWidget
-          // ignore: always_specify_types
-          providers: [
-            BlocProvider<HttpCubit>(
-              create: (_) => HttpCubit(
-                BaseOptions(
-                  connectTimeout: const Duration(seconds: 30),
-                  receiveTimeout: const Duration(seconds: 30),
-                ),
-              ),
+  static Widget init({
+    required Widget Function(BuildContext, ThemeMode) builder,
+  }) => AnnotatedRegion<SystemUiOverlayStyle>(
+    value: _overlayStyle,
+    child: MultiBlocProvider(
+      // can't import the type SingleChildWidget
+      // ignore: always_specify_types
+      providers: [
+        BlocProvider<HttpCubit>(
+          create: (_) => HttpCubit(
+            BaseOptions(
+              connectTimeout: const Duration(seconds: 30),
+              receiveTimeout: const Duration(seconds: 30),
             ),
-            BlocProvider<ThemeCubit>(
-              create: (_) => ThemeCubit(
-                sharedPreferences: SharedPreferencesService().prefs,
-              ),
-            ),
-            RepositoryProvider<LocalDataRepository>.value(
-              value: SharedPreferencesService(),
-            ),
-          ],
-          child: child,
+          ),
         ),
-      );
+        BlocProvider<ThemeCubit>(
+          create: (_) =>
+              ThemeCubit(sharedPreferences: SharedPreferencesService().prefs),
+        ),
+        RepositoryProvider<LocalDataRepository>.value(
+          value: SharedPreferencesService(),
+        ),
+      ],
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (BuildContext context, ThemeMode state) =>
+            builder(context, state),
+      ),
+    ),
+  );
 }
