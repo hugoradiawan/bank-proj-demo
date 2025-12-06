@@ -4,26 +4,24 @@ part of '../home.component.dart';
 
 class _PromoCard extends StatelessWidget {
   const _PromoCard({
-    required this.title,
-    required this.subtitle,
-    this.backgroundColor,
+    required this.assetPath,
     this.onTap,
     super.key,
   });
 
-  final String title;
-  final String subtitle;
-  final Color? backgroundColor;
+  final String assetPath;
   final VoidCallback? onTap;
 
   @override
   Widget build(_) => GestureDetector(
     onTap: onTap,
     child: Container(
-      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        gradient: LightColors().premiumGradient,
         borderRadius: BorderRadius.circular(20),
+        image: DecorationImage(
+          image: AssetImage(assetPath),
+          fit: BoxFit.cover,
+        ),
       ),
     ),
   );

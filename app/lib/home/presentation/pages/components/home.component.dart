@@ -20,6 +20,7 @@ import 'package:flutter/material.dart'
         Column,
         Container,
         CrossAxisAlignment,
+        DecorationImage,
         Divider,
         EdgeInsets,
         Expanded,

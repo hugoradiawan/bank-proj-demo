@@ -58,7 +58,7 @@ class _HomeTab extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 24),
         sliver: SliverToBoxAdapter(child: PromoCarousel(onMorePromo: () {})),
       ),
-      const SliverToBoxAdapter(child: SizedBox(height: 200)),
+      const SliverToBoxAdapter(child: SizedBox(height: 400)),
     ],
   );
 

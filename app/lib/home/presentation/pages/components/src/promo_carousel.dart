@@ -16,9 +16,8 @@ class _PromoCarouselState extends State<PromoCarousel> {
   int _currentPage = 0;
 
   static const List<_PromoData> _promos = <_PromoData>[
-    _PromoData(title: 'BLACK FRIDAY', subtitle: 'SALE 30% OFF'),
-    _PromoData(title: 'SPECIAL OFFER', subtitle: 'BIG DISCOUNT'),
-    _PromoData(title: 'YEAR END SALE', subtitle: 'UP TO 50% OFF'),
+    _PromoData(assetPath: 'assets/images/promo1.webp'),
+    _PromoData(assetPath: 'assets/images/promo2.webp'),
   ];
 
   @override
@@ -53,7 +52,7 @@ class _PromoCarouselState extends State<PromoCarousel> {
               final _PromoData promo = _promos[index];
               return Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: _PromoCard(title: promo.title, subtitle: promo.subtitle),
+                child: _PromoCard(assetPath: promo.assetPath),
               );
             },
           ),
@@ -83,7 +82,6 @@ class _PromoCarouselState extends State<PromoCarousel> {
 }
 
 class _PromoData {
-  const _PromoData({required this.title, required this.subtitle});
-  final String title;
-  final String subtitle;
+  const _PromoData({required this.assetPath});
+  final String assetPath;
 }
