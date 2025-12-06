@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:shared/src/ui/country_selector/cubit/country_search_cubit.dart';
 
 part 'country_picker_bottomsheet.dart';
 
@@ -41,9 +42,12 @@ class CountrySelector extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (BuildContext context) => _CountryPickerBottomSheet(
-        countries: countries,
-        selectedCountry: selectedCountry,
+      builder: (BuildContext context) => BlocProvider<CountrySearchCubit>(
+        create: (BuildContext context) => CountrySearchCubit(
+          countries: countries,
+          selectedCountry: selectedCountry,
+        ),
+        child: const _CountryPickerBottomSheet(),
       ),
     );
 
