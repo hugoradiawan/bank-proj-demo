@@ -6,11 +6,18 @@ class _HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppColors colors = context.colors;
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final SystemUiOverlayStyle overlayStyle = SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
+      statusBarBrightness: isDarkMode ? Brightness.dark : Brightness.light,
+    );
     return CustomScrollView(
       slivers: <Widget>[
         _appBar(
           heights: (85, 30),
           backgroundColor: colors.primary,
+          systemOverlayStyle: overlayStyle,
           child: GreetingHeader(
             onNotificationTap: () {
               context.read<ThemeCubit>().toggleTheme();
@@ -21,6 +28,8 @@ class _HomeTab extends StatelessWidget {
         ),
         _appBar(
           heights: (178, 60),
+          backgroundColor: colors.surface,
+          systemOverlayStyle: overlayStyle,
           child: Stack(
             children: <Widget>[
               Column(
@@ -70,9 +79,11 @@ class _HomeTab extends StatelessWidget {
   SliverAppBar _appBar({
     required (double, double) heights,
     required Widget child,
-    Color? backgroundColor,
+    required Color backgroundColor,
+    SystemUiOverlayStyle? systemOverlayStyle,
   }) => SliverAppBar(
-    backgroundColor: backgroundColor ?? Colors.white,
+    backgroundColor: backgroundColor,
+    systemOverlayStyle: systemOverlayStyle,
     elevation: 0,
     toolbarHeight: 0,
     expandedHeight: heights.$1,

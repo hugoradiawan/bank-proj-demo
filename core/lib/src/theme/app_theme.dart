@@ -4,6 +4,7 @@ import 'package:core/src/theme/app_colors.dart';
 import 'package:core/src/theme/app_colors_theme.dart';
 import 'package:core/src/theme/app_typography.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 @immutable
 class HighlightTileTheme extends ThemeExtension<HighlightTileTheme> {
@@ -78,6 +79,11 @@ class AppTheme {
         backgroundColor: Colors.white,
         foregroundColor: colors.textPrimary,
         elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
+        ),
       ),
       inputDecorationTheme: const InputDecorationTheme(
         border: OutlineInputBorder(),
@@ -129,6 +135,11 @@ class AppTheme {
         backgroundColor: colors.surface,
         foregroundColor: colors.textPrimary,
         elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
+        ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         border: const OutlineInputBorder(),

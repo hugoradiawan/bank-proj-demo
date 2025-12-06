@@ -1,6 +1,7 @@
 import 'package:app/home/presentation/pages/components/home.component.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:premium/components.dart';
 
 part 'src/tabs/home.tab.dart';
