@@ -29,20 +29,24 @@ class _PromoCarouselState extends State<PromoCarousel> {
   @override
   Widget build(BuildContext context) {
     final AppColors colors = context.colors;
+    final double horizontalPadding = Responsive.getHorizontalPadding(context);
+    final double spacingMultiplier = Responsive.getSpacingMultiplier(context);
+    const double promoAspectRatio = 1.73;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
           child: SectionHeader(
             title: 'Promo',
             actionText: 'More promo',
             onActionTap: widget.onMorePromo,
           ),
         ),
-        const SizedBox(height: 16),
-        SizedBox(
-          height: 190,
+        SizedBox(height: 16 * spacingMultiplier),
+        AspectRatio(
+          aspectRatio: promoAspectRatio / 0.875,
           child: PageView.builder(
             controller: _pageController,
             padEnds: false,
@@ -51,13 +55,13 @@ class _PromoCarouselState extends State<PromoCarousel> {
             itemBuilder: (BuildContext context, int index) {
               final _PromoData promo = _promos[index];
               return Padding(
-                padding: const EdgeInsets.only(left: 16),
+                padding: EdgeInsets.only(left: horizontalPadding),
                 child: _PromoCard(assetPath: promo.assetPath),
               );
             },
           ),
         ),
-        const SizedBox(height: 14),
+        SizedBox(height: 14 * spacingMultiplier),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List<Widget>.generate(

@@ -23,10 +23,15 @@ class _BalanceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppColors colors = context.colors;
+    final double horizontalPadding = Responsive.getHorizontalPadding(context);
+    final double spacingMultiplier = Responsive.getSpacingMultiplier(context);
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: horizontalPadding),
+      padding: EdgeInsets.symmetric(
+        vertical: 8 * spacingMultiplier,
+        horizontal: 20 * spacingMultiplier,
+      ),
       decoration: BoxDecoration(
         color: colors.surface,
         borderRadius: BorderRadius.circular(20),
@@ -54,7 +59,7 @@ class _BalanceCard extends StatelessWidget {
                           color: colors.textSecondary,
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8 * spacingMultiplier),
                       Text(
                         balance,
                         style: theme.textTheme.headlineMedium?.copyWith(

@@ -23,12 +23,14 @@ class _NavItem extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final AppColors colors = context.colors;
     final Color color = isSelected ? colors.primary : colors.gray400;
+    final double itemWidth = Responsive.isTabletOrLarger(context) ? 80 : 64;
+    final double iconSize = Responsive.isTabletOrLarger(context) ? 28 : 24;
 
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: SizedBox(
-        width: 64,
+        width: itemWidth,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,7 +48,7 @@ class _NavItem extends StatelessWidget {
               child: PhosphorIcon(
                 icon,
                 color: isQris ? colors.surface : color,
-                size: 24,
+                size: iconSize,
               ),
             ),
             if (!isQris) const SizedBox(height: 4),

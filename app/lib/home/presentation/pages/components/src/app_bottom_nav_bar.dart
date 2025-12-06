@@ -6,11 +6,13 @@ class _AppBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppColors colors = context.colors;
+    final double bottomPadding = Responsive.isTabletOrLarger(context) ? 12 : 8;
+
     return ColoredBox(
       color: colors.surface,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: EdgeInsets.only(bottom: bottomPadding),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[

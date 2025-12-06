@@ -30,10 +30,19 @@ class _GreetingHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppColors colors = context.colors;
+    final double horizontalPadding = Responsive.getHorizontalPadding(context);
+    final double spacingMultiplier = Responsive.getSpacingMultiplier(context);
+    final bool isTablet = Responsive.isTabletOrLarger(context);
+    final double avatarSize = isTablet ? 52 : 44;
 
     return Container(
       alignment: Alignment.bottomCenter,
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+      padding: EdgeInsets.fromLTRB(
+        horizontalPadding,
+        8 * spacingMultiplier,
+        horizontalPadding,
+        24 * spacingMultiplier,
+      ),
       decoration: BoxDecoration(color: colors.primary),
       child: SafeArea(
         bottom: false,
@@ -54,25 +63,27 @@ class _GreetingHeader extends StatelessWidget {
                 child: avatarUrl != null
                     ? Ink.image(
                         image: NetworkImage(avatarUrl!),
-                        width: 44,
-                        height: 44,
+                        width: avatarSize,
+                        height: avatarSize,
                         fit: BoxFit.cover,
                       )
                     : Ink(
-                        width: 44,
-                        height: 44,
-                        child: const ClipOval(
+                        width: avatarSize,
+                        height: avatarSize,
+                        child: ClipOval(
                           child: Image(
-                            image: AssetImage('assets/images/person.webp'),
-                            width: 44,
-                            height: 44,
+                            image: const AssetImage(
+                              'assets/images/person.webp',
+                            ),
+                            width: avatarSize,
+                            height: avatarSize,
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
               ),
             ),
-            const SizedBox(width: 14),
+            SizedBox(width: 14 * spacingMultiplier),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +113,7 @@ class _GreetingHeader extends StatelessWidget {
                 onTap: onCustomerServiceTap,
               ),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: 8 * spacingMultiplier),
             VerticalIconButton(
               icon: PhosphorIconsBold.bell,
               onTap: onNotificationTap,

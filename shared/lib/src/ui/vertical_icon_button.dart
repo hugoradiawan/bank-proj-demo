@@ -9,19 +9,25 @@ class VerticalIconButton extends StatelessWidget {
   final VoidCallback? onTap;
 
   @override
-  Widget build(BuildContext context) => Material(
+  Widget build(BuildContext context) {
+    final bool isTablet = Responsive.isTabletOrLarger(context);
+    final double buttonSize = isTablet ? 48 : 40;
+    final double iconSize = isTablet ? 24 : 20;
+
+    return Material(
       color: context.colors.primary,
       child: InkWell(
         splashColor: Colors.white.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(200),
         onTap: onTap,
         child: SizedBox(
-          width: 40,
-          height: 40,
+          width: buttonSize,
+          height: buttonSize,
           child: Center(
-            child: PhosphorIcon(icon, color: Colors.white, size: 20),
+            child: PhosphorIcon(icon, color: Colors.white, size: iconSize),
           ),
         ),
       ),
     );
+  }
 }

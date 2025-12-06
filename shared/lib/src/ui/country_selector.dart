@@ -33,17 +33,36 @@ class CountrySelector extends StatelessWidget {
   final List<Country> countries;
 
   Future<void> _showCountryPicker(BuildContext context) async {
-    final Country? result = await showModalBottomSheet<Country>(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (BuildContext context) => _CountryPickerBottomSheet(
-        countries: countries,
-        selectedCountry: selectedCountry,
-      ),
-    );
+    final bool isTabletOrLarger = Responsive.isTabletOrLarger(context);
+
+    Country? result;
+
+    if (isTabletOrLarger) {
+      result = await showDialog<Country>(
+        context: context,
+        builder: (BuildContext context) => _CountryPickerDialog(
+          countries: countries,
+          selectedCountry: selectedCountry,
+        ),
+      );
+    } else {
+      // Use constrained bottom sheet on mobile
+      result = await showModalBottomSheet<Country>(
+        context: context,
+        isScrollControlled: true,
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.sizeOf(context).width,
+          maxHeight: MediaQuery.sizeOf(context).height * 0.5,
+        ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        builder: (BuildContext context) => _CountryPickerBottomSheet(
+          countries: countries,
+          selectedCountry: selectedCountry,
+        ),
+      );
+    }
 
     if (result != null) {
       onCountrySelected(result);
@@ -190,6 +209,122 @@ class _CountryPickerBottomSheet extends StatelessWidget {
                     ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Dialog picker for tablet/desktop - centered on screen
+class _CountryPickerDialog extends StatelessWidget {
+  const _CountryPickerDialog({
+    required this.countries,
+    this.selectedCountry,
+  });
+
+  final List<Country> countries;
+  final Country? selectedCountry;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final AppColors colors = context.colors;
+
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 400,
+          maxHeight: 500,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              // Title row with close button
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Select Country',
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: colors.textPrimary,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: PhosphorIcon(
+                      PhosphorIconsBold.x,
+                      color: colors.gray400,
+                      size: 24,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              // Country list
+              Flexible(
+                child: countries.isEmpty
+                    ? Center(
+                        child: CircularProgressIndicator(color: colors.primary),
+                      )
+                    : ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: countries.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final Country country = countries[index];
+                          final bool isSelected =
+                              selectedCountry?.code == country.code;
+
+                          return InkWell(
+                            borderRadius: BorderRadius.circular(8),
+                            onTap: () => Navigator.of(context).pop(country),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 12,
+                                horizontal: 8,
+                              ),
+                              child: Row(
+                                children: <Widget>[
+                                  if (country.flag != null)
+                                    Text(
+                                      country.flag!,
+                                      style: const TextStyle(fontSize: 24),
+                                    )
+                                  else
+                                    const SizedBox(width: 24),
+                                  const SizedBox(width: 16),
+                                  Expanded(
+                                    child: Text(
+                                      country.name,
+                                      style: theme.textTheme.bodyLarge?.copyWith(
+                                        color: colors.textPrimary,
+                                        fontWeight: isSelected
+                                            ? FontWeight.w600
+                                            : FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                  if (isSelected)
+                                    PhosphorIcon(
+                                      PhosphorIconsBold.check,
+                                      color: colors.primary,
+                                      size: 24,
+                                    ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );

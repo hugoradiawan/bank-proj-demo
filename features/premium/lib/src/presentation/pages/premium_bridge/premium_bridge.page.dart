@@ -13,6 +13,24 @@ class PremiumBridgePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppColors colors = context.colors;
+    final Size screenSize = MediaQuery.sizeOf(context);
+    final bool isTablet = Responsive.isTabletOrLarger(context);
+    final double horizontalPadding = Responsive.getHorizontalPadding(context);
+    final double spacingMultiplier = Responsive.getSpacingMultiplier(context);
+
+    final double crownTop = isTablet ? 100 : 70;
+    final double crownSize = isTablet
+        ? screenSize.width * 0.35
+        : screenSize.width * 0.42;
+
+    final double contentTop = isTablet ? 280 : 240;
+    final double contentWidth = isTablet
+        ? (screenSize.width * 0.55).clamp(0, 500)
+        : screenSize.width * 0.7;
+    final double contentHeight = isTablet
+        ? screenSize.height * 0.50
+        : screenSize.height * 0.54;
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.light,
@@ -31,8 +49,8 @@ class PremiumBridgePage extends StatelessWidget {
               backgroundColor: colors.gray500.withValues(alpha: .3),
             ),
             Positioned(
-              top: 70,
-              right: 10,
+              top: crownTop,
+              right: isTablet ? 30 : 10,
               child: Hero(
                 tag: 'premium_crown',
                 child: Transform(
@@ -42,8 +60,8 @@ class PremiumBridgePage extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Image.asset(
                     'assets/images/crown.webp',
-                    width: MediaQuery.of(context).size.width * .42,
-                    height: MediaQuery.of(context).size.width * .42,
+                    width: crownSize,
+                    height: crownSize,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -55,22 +73,34 @@ class PremiumBridgePage extends StatelessWidget {
               right: 0,
               child: SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      minimumSize: const Size.fromHeight(50),
-                      backgroundColor: colors.gold,
-                    ),
-                    onPressed: onAccessPremiumNow,
-                    child: Text(
-                      'Access Premium Now',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 16,
-                        color: colors.textOnPrimary,
+                  padding: EdgeInsets.only(bottom: 16 * spacingMultiplier),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 500),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: horizontalPadding,
+                        ),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            minimumSize: Size.fromHeight(
+                              50 * spacingMultiplier,
+                            ),
+                            backgroundColor: colors.gold,
+                          ),
+                          onPressed: onAccessPremiumNow,
+                          child: Text(
+                            'Access Premium Now',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16,
+                              color: colors.textOnPrimary,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -78,11 +108,11 @@ class PremiumBridgePage extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 240,
-              left: 16,
+              top: contentTop,
+              left: horizontalPadding,
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * .54,
-                width: MediaQuery.of(context).size.width * .7,
+                height: contentHeight,
+                width: contentWidth,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -91,7 +121,7 @@ class PremiumBridgePage extends StatelessWidget {
                         'More Benefits,\nMore Fun!',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: isTablet ? 36 : 30,
                           color: colors.gold,
                         ),
                       ),

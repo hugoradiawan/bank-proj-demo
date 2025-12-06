@@ -14,6 +14,12 @@ class SuccessPage extends StatelessWidget {
     final AppColors colors = context.colors;
     final ThemeData theme = Theme.of(context);
     final double screenHeight = MediaQuery.sizeOf(context).height;
+    final double horizontalPadding = Responsive.getHorizontalPadding(context);
+    final double spacingMultiplier = Responsive.getSpacingMultiplier(context);
+    final bool isTablet = Responsive.isTabletOrLarger(context);
+
+    final double iconContainerSize = isTablet ? 100 : 80;
+    final double iconSize = isTablet ? 50 : 40;
 
     return Scaffold(
       backgroundColor: colors.surface,
@@ -45,47 +51,50 @@ class SuccessPage extends StatelessWidget {
           ),
           SafeArea(
             child: Center(
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: 24,
-                  right: 24,
-                  bottom: screenHeight * 0.15,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Container(
-                      width: 80,
-                      height: 80,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: colors.success,
-                        shape: BoxShape.circle,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: horizontalPadding,
+                    right: horizontalPadding,
+                    bottom: screenHeight * 0.15,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Container(
+                        width: iconContainerSize,
+                        height: iconContainerSize,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: colors.success,
+                          shape: BoxShape.circle,
+                        ),
+                        child: PhosphorIcon(
+                          PhosphorIconsBold.check,
+                          color: colors.surface,
+                          size: iconSize,
+                        ),
                       ),
-                      child: PhosphorIcon(
-                        PhosphorIconsBold.check,
-                        color: colors.surface,
-                        size: 40,
+                      SizedBox(height: 24 * spacingMultiplier),
+                      Text(
+                        'Registration Sent! 🥳',
+                        style: theme.textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: colors.textPrimary,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                    Text(
-                      'Registration Sent! 🥳',
-                      style: theme.textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: colors.textPrimary,
+                      SizedBox(height: 12 * spacingMultiplier),
+                      Text(
+                        'Please wait while we verify your data.\nIt will take 5 minutes!',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: colors.textSecondary,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      'Please wait while we verify your data.\nIt will take 5 minutes!',
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: colors.textSecondary,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -95,7 +104,7 @@ class SuccessPage extends StatelessWidget {
             left: 0,
             right: 0,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
               decoration: BoxDecoration(
                 color: colors.surface,
                 borderRadius: const BorderRadius.vertical(
@@ -104,23 +113,31 @@ class SuccessPage extends StatelessWidget {
               ),
               child: SafeArea(
                 top: false,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 8),
-                  child: FilledButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    style: FilledButton.styleFrom(
-                      minimumSize: const Size.fromHeight(52),
-                      backgroundColor: colors.gray100,
-                      foregroundColor: colors.primary,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 500),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        top: 12 * spacingMultiplier,
+                        bottom: 8 * spacingMultiplier,
                       ),
-                    ),
-                    child: Text(
-                      'Back to Home',
-                      style: theme.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: colors.primary,
+                      child: FilledButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        style: FilledButton.styleFrom(
+                          minimumSize: Size.fromHeight(52 * spacingMultiplier),
+                          backgroundColor: colors.gray100,
+                          foregroundColor: colors.primary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(28),
+                          ),
+                        ),
+                        child: Text(
+                          'Back to Home',
+                          style: theme.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: colors.primary,
+                          ),
+                        ),
                       ),
                     ),
                   ),

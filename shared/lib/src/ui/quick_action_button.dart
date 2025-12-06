@@ -31,11 +31,11 @@ class QuickActionButton extends StatelessWidget {
               alignment: Alignment.center,
               clipBehavior: Clip.none,
               children: <Widget>[
-                SizedBox(child: Center(child: icon)),
+                icon,
                 if (badge != null)
                   Positioned(
                     top: -10,
-                    right: 10,
+                    right: -40,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 6,

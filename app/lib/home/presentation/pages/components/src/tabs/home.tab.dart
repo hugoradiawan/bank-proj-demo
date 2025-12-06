@@ -7,6 +7,9 @@ class _HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppColors colors = context.colors;
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final double horizontalPadding = Responsive.getHorizontalPadding(context);
+    final double spacingMultiplier = Responsive.getSpacingMultiplier(context);
+
     return BlocProvider<_HomeTabCubit>(
       create: (_) => _HomeTabCubit(),
       child: Builder(
@@ -55,12 +58,20 @@ class _HomeTab extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SliverPadding(
-                    padding: EdgeInsets.only(bottom: 24, top: 12),
-                    sliver: SliverToBoxAdapter(child: PremiumBanner()),
+                  SliverPadding(
+                    padding: EdgeInsets.only(
+                      bottom: 24 * spacingMultiplier,
+                      top: 12 * spacingMultiplier,
+                    ),
+                    sliver: const SliverToBoxAdapter(child: PremiumBanner()),
                   ),
                   SliverPadding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 20, 0),
+                    padding: EdgeInsets.fromLTRB(
+                      horizontalPadding,
+                      0,
+                      horizontalPadding + 4,
+                      0,
+                    ),
                     sliver: SliverToBoxAdapter(
                       child: FinanceGrid(
                         onBills: () {},
@@ -72,7 +83,9 @@ class _HomeTab extends StatelessWidget {
                     ),
                   ),
                   SliverPadding(
-                    padding: const EdgeInsets.symmetric(vertical: 24),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 24 * spacingMultiplier,
+                    ),
                     sliver: SliverToBoxAdapter(
                       child: PromoCarousel(onMorePromo: () {}),
                     ),

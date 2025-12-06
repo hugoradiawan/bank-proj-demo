@@ -10,14 +10,20 @@ class PremiumBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppColors colors = context.colors;
+    final double horizontalPadding = Responsive.getHorizontalPadding(context);
+    final bool isTablet = Responsive.isTabletOrLarger(context);
+    final double crownSize = isTablet ? 100 : 80;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       child: Stack(
         clipBehavior: Clip.none,
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 16),
+            padding: EdgeInsets.symmetric(
+              vertical: isTablet ? 8 : 5,
+              horizontal: isTablet ? 24 : 16,
+            ),
             decoration: BoxDecoration(
               gradient: colors.premiumGradient,
               borderRadius: BorderRadius.circular(20),
@@ -64,8 +70,8 @@ class PremiumBanner extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Image.asset(
                       'assets/images/crown.webp',
-                      width: 80,
-                      height: 80,
+                      width: crownSize,
+                      height: crownSize,
                       fit: BoxFit.contain,
                     ),
                   ),
