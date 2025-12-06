@@ -35,10 +35,10 @@ class _RegisterButton extends StatelessWidget {
                     minimumSize: const Size.fromHeight(52),
                     backgroundColor: state.isValid
                         ? colors.primary
-                        : colors.gray200,
-                    foregroundColor: state.isValid
-                        ? colors.textOnPrimary
-                        : colors.gray400,
+                        : colors.primary.withOpacity(0.5),
+                    foregroundColor: colors.textOnPrimary,
+                    disabledBackgroundColor: colors.primary.withOpacity(0.5),
+                    disabledForegroundColor: colors.textOnPrimary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -47,9 +47,7 @@ class _RegisterButton extends StatelessWidget {
                     'Register for Premium',
                     style: theme.textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: state.isValid
-                          ? colors.textOnPrimary
-                          : colors.gray400,
+                      color: colors.textOnPrimary,
                     ),
                   ),
                 );
