@@ -334,13 +334,14 @@ style: |
 
 ---
 ## Submission Package & Runbook
-- **Repository**: `https://github.com/hugoradiawan/mondooli` (branch/tag: `main`).
+- **Repository**: `https://github.com/hugoradiawan/mondooli` (due to confidentiality need to request for access).
 - **Prototype placeholder**: _Embed Figma/Loom link here once recording is ready._
 - **APK Size**: ~50 MB raw APK; estimated ~20 MB on Google Play (AAB + delivery optimization) and ~40 MB on App Store.
 - **Run locally**
    1. `fvm use`
    2. `melos bootstrap`
    3. `melos run app` (Android or iOS — portrait only)
+   4. `melos run build:apk` (to build APK)
 - **Credentials/Notes**: none required; API is public. Update `.env` only if new services are added.
 - **Submit to**: `novistya.rahmawati@mondooli.com` with deck + repo link per brief instructions.
 
