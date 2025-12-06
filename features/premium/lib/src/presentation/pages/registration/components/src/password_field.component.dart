@@ -23,7 +23,8 @@ class _PasswordField extends StatelessWidget {
         const SizedBox(height: 8),
         BlocBuilder<RegistrationCubit, RegistrationState>(
           buildWhen: (RegistrationState prev, RegistrationState curr) =>
-              prev.isPasswordVisible != curr.isPasswordVisible,
+              prev.isPasswordVisible != curr.isPasswordVisible ||
+              prev.showPasswordError != curr.showPasswordError,
           builder: (BuildContext context, RegistrationState state) =>
               AppTextField(
                 hintText: '••••••••',
@@ -45,6 +46,7 @@ class _PasswordField extends StatelessWidget {
                 obscureText: !state.isPasswordVisible,
                 textInputAction: TextInputAction.done,
                 onChanged: cubit.setPassword,
+                hasError: state.showPasswordError,
               ),
         ),
       ],

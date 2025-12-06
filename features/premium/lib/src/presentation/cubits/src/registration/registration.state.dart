@@ -8,6 +8,9 @@ class _RegistrationState {
     this.password = '',
     this.isPasswordVisible = false,
     this.countries = const <Country>[],
+    this.isFullNameTouched = false,
+    this.isEmailTouched = false,
+    this.isPasswordTouched = false,
   });
 
   final String fullName;
@@ -16,6 +19,9 @@ class _RegistrationState {
   final String password;
   final bool isPasswordVisible;
   final List<Country> countries;
+  final bool isFullNameTouched;
+  final bool isEmailTouched;
+  final bool isPasswordTouched;
 
   static final RegExp _emailRegex = RegExp(
     r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
@@ -49,6 +55,22 @@ class _RegistrationState {
   bool get isValid =>
       isFullNameValid && isEmailValid && isCountrySelected && isPasswordValid;
 
+  bool get showFullNameError => isFullNameTouched && !isFullNameValid;
+  bool get showEmailError => isEmailTouched && !isEmailValid;
+  bool get showPasswordError => isPasswordTouched && !isPasswordValid;
+
+  String? get fullNameErrorText =>
+      showFullNameError ? 'Full name is required' : null;
+
+  String? get emailErrorText {
+    if (!isEmailTouched) return null;
+    if (email.trim().isEmpty) return 'Email address is required';
+    if (!_emailRegex.hasMatch(email.trim())) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
+
   _RegistrationState copyWith({
     String? fullName,
     String? email,
@@ -56,6 +78,9 @@ class _RegistrationState {
     String? password,
     bool? isPasswordVisible,
     List<Country>? countries,
+    bool? isFullNameTouched,
+    bool? isEmailTouched,
+    bool? isPasswordTouched,
   }) => _RegistrationState(
     fullName: fullName ?? this.fullName,
     email: email ?? this.email,
@@ -63,5 +88,8 @@ class _RegistrationState {
     password: password ?? this.password,
     isPasswordVisible: isPasswordVisible ?? this.isPasswordVisible,
     countries: countries ?? this.countries,
+    isFullNameTouched: isFullNameTouched ?? this.isFullNameTouched,
+    isEmailTouched: isEmailTouched ?? this.isEmailTouched,
+    isPasswordTouched: isPasswordTouched ?? this.isPasswordTouched,
   );
 }

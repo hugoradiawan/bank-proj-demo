@@ -37,6 +37,8 @@ class AppTextField extends StatefulWidget {
     this.controller,
     this.focusNode,
     this.enabled = true,
+    this.hasError = false,
+    this.errorText,
     super.key,
   });
 
@@ -53,6 +55,8 @@ class AppTextField extends StatefulWidget {
   final dynamic controller;
   final FocusNode? focusNode;
   final bool enabled;
+  final bool hasError;
+  final String? errorText;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
@@ -90,10 +94,16 @@ class _AppTextFieldState extends State<AppTextField> {
     final ThemeData theme = Theme.of(context);
     final LightColors colors = LightColors();
 
-    final Color borderColor = _isFocused ? colors.primary : colors.gray200;
+    final Color borderColor = widget.hasError
+        ? colors.error
+        : (_isFocused ? colors.primary : colors.gray200);
     final InputBorder border = OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
       borderSide: BorderSide(color: borderColor),
+    );
+    final InputBorder errorBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: BorderSide(color: colors.error),
     );
 
     return TextField(
@@ -128,13 +138,21 @@ class _AppTextFieldState extends State<AppTextField> {
         ),
         border: border,
         enabledBorder: border,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: colors.primary),
-        ),
+        focusedBorder: widget.hasError
+            ? errorBorder
+            : OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: colors.primary),
+              ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: colors.gray200),
+        ),
+        errorBorder: errorBorder,
+        focusedErrorBorder: errorBorder,
+        errorText: widget.errorText,
+        errorStyle: theme.textTheme.bodySmall?.copyWith(
+          color: colors.error,
         ),
       ),
     );

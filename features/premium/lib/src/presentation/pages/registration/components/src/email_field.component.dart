@@ -21,16 +21,24 @@ class _EmailField extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        AppTextField(
-          hintText: 'example@mail.com',
-          prefixIcon: PhosphorIcon(
-            PhosphorIconsBold.envelope,
-            color: colors.gray400,
-            size: 20,
-          ),
-          keyboardType: TextInputType.emailAddress,
-          textInputAction: TextInputAction.next,
-          onChanged: cubit.setEmail,
+        BlocBuilder<RegistrationCubit, RegistrationState>(
+          buildWhen: (RegistrationState prev, RegistrationState curr) =>
+              prev.showEmailError != curr.showEmailError ||
+              prev.emailErrorText != curr.emailErrorText,
+          builder: (BuildContext context, RegistrationState state) =>
+              AppTextField(
+                hintText: 'example@mail.com',
+                prefixIcon: PhosphorIcon(
+                  PhosphorIconsBold.envelope,
+                  color: colors.gray400,
+                  size: 20,
+                ),
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
+                onChanged: cubit.setEmail,
+                hasError: state.showEmailError,
+                errorText: state.emailErrorText,
+              ),
         ),
       ],
     );

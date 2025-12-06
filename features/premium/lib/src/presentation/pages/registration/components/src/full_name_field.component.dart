@@ -21,15 +21,22 @@ class _FullNameField extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        AppTextField(
-          hintText: 'Your name',
-          prefixIcon: PhosphorIcon(
-            PhosphorIconsBold.user,
-            color: colors.gray400,
-            size: 20,
-          ),
-          textInputAction: TextInputAction.next,
-          onChanged: cubit.setFullName,
+        BlocBuilder<RegistrationCubit, RegistrationState>(
+          buildWhen: (RegistrationState prev, RegistrationState curr) =>
+              prev.showFullNameError != curr.showFullNameError,
+          builder: (BuildContext context, RegistrationState state) =>
+              AppTextField(
+                hintText: 'Your name',
+                prefixIcon: PhosphorIcon(
+                  PhosphorIconsBold.user,
+                  color: colors.gray400,
+                  size: 20,
+                ),
+                textInputAction: TextInputAction.next,
+                onChanged: cubit.setFullName,
+                hasError: state.showFullNameError,
+                errorText: state.fullNameErrorText,
+              ),
         ),
       ],
     );

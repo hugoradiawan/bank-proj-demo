@@ -24,13 +24,22 @@ class _RegistrationCubit extends Cubit<_RegistrationState> {
     );
   }
 
-  void setFullName(String value) => emit(state.copyWith(fullName: value));
+  void setFullName(String value) => emit(state.copyWith(
+    fullName: value,
+    isFullNameTouched: true,
+  ));
 
-  void setEmail(String value) => emit(state.copyWith(email: value));
+  void setEmail(String value) => emit(state.copyWith(
+    email: value,
+    isEmailTouched: true,
+  ));
 
   void setCountry(Country country) => emit(state.copyWith(country: country));
 
-  void setPassword(String value) => emit(state.copyWith(password: value));
+  void setPassword(String value) => emit(state.copyWith(
+    password: value,
+    isPasswordTouched: true,
+  ));
 
   void togglePasswordVisibility() =>
       emit(state.copyWith(isPasswordVisible: !state.isPasswordVisible));
