@@ -27,8 +27,8 @@ class _PromoCarouselState extends State<PromoCarousel> {
   }
 
   @override
-  Widget build(_) {
-    final LightColors colors = LightColors();
+  Widget build(BuildContext context) {
+    final AppColors colors = context.colors;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

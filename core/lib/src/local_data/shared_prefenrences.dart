@@ -13,6 +13,8 @@ class SharedPreferencesService implements LocalDataRepository {
   static final SharedPreferencesService _instance =
       SharedPreferencesService._();
 
+  SharedPreferences get prefs => _sharedPreferences;
+
   @override
   Future<void> init() async =>
       _sharedPreferences = await SharedPreferences.getInstance();

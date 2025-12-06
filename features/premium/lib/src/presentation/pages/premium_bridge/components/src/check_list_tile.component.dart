@@ -7,7 +7,7 @@ class _CheckListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     return Expanded(
       child: Row(
         children: <Widget>[

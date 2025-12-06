@@ -5,6 +5,7 @@ import 'package:core/src/local_data/shared_prefenrences.dart'
 import 'package:core/src/network/http_cubit.dart' show HttpCubit;
 import 'package:core/src/state_management/bloc.dart';
 import 'package:core/src/theme/app_typography.dart' show AppTypography;
+import 'package:core/src/theme/theme_cubit.dart' show ThemeCubit;
 import 'package:dio/dio.dart' show BaseOptions;
 import 'package:flutter/material.dart' show AnnotatedRegion, Colors, Widget;
 import 'package:flutter/services.dart'
@@ -57,6 +58,11 @@ class Core {
                   connectTimeout: const Duration(seconds: 30),
                   receiveTimeout: const Duration(seconds: 30),
                 ),
+              ),
+            ),
+            BlocProvider<ThemeCubit>(
+              create: (_) => ThemeCubit(
+                sharedPreferences: SharedPreferencesService().prefs,
               ),
             ),
             RepositoryProvider<LocalDataRepository>.value(

@@ -8,7 +8,7 @@ class _ValidationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     final ThemeData theme = Theme.of(context);
     final Color checkColor = isValid ? colors.success : colors.gray400;
 

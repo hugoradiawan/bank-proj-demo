@@ -1,6 +1,6 @@
 import 'package:app/home/presentation/pages/components/home.component.dart'
     show BalanceCard, FinanceGrid, GreetingHeader, PromoCarousel;
-import 'package:core/core.dart' show LightColors;
+import 'package:core/core.dart' show AppColors, AppColorsContextX, ReadContext, ThemeCubit;
 import 'package:flutter/material.dart'
     show
         BuildContext,

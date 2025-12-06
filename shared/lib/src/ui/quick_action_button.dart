@@ -1,4 +1,4 @@
-import 'package:core/core.dart' show LightColors;
+import 'package:core/core.dart' show AppColors, AppColorsContextX;
 import 'package:flutter/material.dart'
     show
         Alignment,
@@ -42,7 +42,7 @@ class QuickActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     return Expanded(
       child: InkWell(
         splashColor: colors.primaryLight.withValues(alpha: 0.3),

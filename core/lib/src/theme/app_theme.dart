@@ -1,10 +1,13 @@
 import 'dart:ui' show lerpDouble;
 
-import 'package:core/src/theme/app_colors.dart' show LightColors;
+import 'package:core/src/theme/app_colors.dart'
+    show AppColors, DarkColors, LightColors;
+import 'package:core/src/theme/app_colors_theme.dart' show AppColorsTheme;
 import 'package:core/src/theme/app_typography.dart' show AppTypography;
 import 'package:flutter/material.dart'
     show
         BorderRadius,
+        Brightness,
         Color,
         ColorScheme,
         Colors,
@@ -65,7 +68,7 @@ class AppTheme {
 
   static ThemeData get light {
     final ThemeData base = ThemeData.light();
-    final LightColors colors = LightColors();
+    final AppColors colors = LightColors();
     final ColorScheme colorScheme = ColorScheme.fromSeed(
       seedColor: colors.primary,
     );
@@ -102,9 +105,62 @@ class AppTheme {
         color: colorScheme.primary,
       ),
       extensions: <ThemeExtension<dynamic>>[
+        AppColorsTheme.light,
         HighlightTileTheme(
           splashColor: colorScheme.primary.withValues(alpha: 0.075),
           highlightColor: colorScheme.primary.withValues(alpha: 0.075),
+          borderColor: colorScheme.outlineVariant,
+          borderRadius: 16,
+        ),
+      ],
+    );
+  }
+
+  static ThemeData get dark {
+    final ThemeData base = ThemeData.dark();
+    final AppColors colors = DarkColors();
+    final ColorScheme colorScheme = ColorScheme.fromSeed(
+      seedColor: colors.primary,
+      brightness: Brightness.dark,
+    );
+    final TextTheme textTheme = AppTypography.buildTextTheme(
+      colors.textPrimary,
+    );
+    return base.copyWith(
+      colorScheme: colorScheme,
+      scaffoldBackgroundColor: colors.surface,
+      textTheme: textTheme,
+      splashFactory: InkRipple.splashFactory,
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+          textStyle: textTheme.labelLarge?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      ),
+      appBarTheme: base.appBarTheme.copyWith(
+        backgroundColor: colors.surface,
+        foregroundColor: colors.textPrimary,
+        elevation: 0,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        border: const OutlineInputBorder(),
+        fillColor: colors.surfaceVariant,
+      ),
+      progressIndicatorTheme: base.progressIndicatorTheme.copyWith(
+        color: colorScheme.primary,
+      ),
+      extensions: <ThemeExtension<dynamic>>[
+        AppColorsTheme.dark,
+        HighlightTileTheme(
+          splashColor: colorScheme.primary.withValues(alpha: 0.1),
+          highlightColor: colorScheme.primary.withValues(alpha: 0.1),
           borderColor: colorScheme.outlineVariant,
           borderRadius: 16,
         ),

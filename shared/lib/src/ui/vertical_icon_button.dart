@@ -1,7 +1,8 @@
-import 'package:core/core.dart' show LightColors;
+import 'package:core/core.dart' show AppColorsContextX;
 import 'package:flutter/material.dart'
     show
         BorderRadius,
+        BuildContext,
         Center,
         Colors,
         IconData,
@@ -20,10 +21,8 @@ class VerticalIconButton extends StatelessWidget {
   final VoidCallback? onTap;
 
   @override
-  Widget build(_) {
-    final LightColors colors = LightColors();
-    return Material(
-      color: colors.primary,
+  Widget build(BuildContext context) => Material(
+      color: context.colors.primary,
       child: InkWell(
         splashColor: Colors.white.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(200),
@@ -37,5 +36,4 @@ class VerticalIconButton extends StatelessWidget {
         ),
       ),
     );
-  }
 }

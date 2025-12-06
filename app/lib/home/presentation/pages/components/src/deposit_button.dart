@@ -8,7 +8,7 @@ class _DepositButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     return Material(
       type: MaterialType.transparency,
       shape: RoundedRectangleBorder(

@@ -1,5 +1,5 @@
 import 'package:app/home/route/home_route.dart' show homeRoutes;
-import 'package:core/core.dart' show AppTheme, Core;
+import 'package:core/core.dart' show AppTheme, BlocBuilder, Core, ThemeCubit;
 import 'package:flutter/material.dart'
     show
         AnnotatedRegion,
@@ -7,6 +7,7 @@ import 'package:flutter/material.dart'
         Colors,
         MaterialApp,
         StatelessWidget,
+        ThemeMode,
         Widget,
         WidgetsFlutterBinding,
         runApp;
@@ -35,10 +36,14 @@ class MondooliApp extends StatelessWidget {
   Widget build(_) => AnnotatedRegion<SystemUiOverlayStyle>(
     value: _overlayStyle,
     child: Core.init(
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.light,
-        routerConfig: AppRouter.router,
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (_, ThemeMode themeMode) => MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          darkTheme: AppTheme.dark,
+          themeMode: themeMode,
+          routerConfig: AppRouter.router,
+        ),
       ),
     ),
   );

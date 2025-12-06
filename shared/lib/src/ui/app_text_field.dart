@@ -1,4 +1,4 @@
-import 'package:core/core.dart' show LightColors;
+import 'package:core/core.dart' show AppColors, AppColorsContextX;
 import 'package:flutter/material.dart'
     show
         BorderRadius,
@@ -92,7 +92,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
 
     final Color borderColor = widget.hasError
         ? colors.error

@@ -1,4 +1,4 @@
-import 'package:core/core.dart' show BlocBuilder, LightColors, ReadContext;
+import 'package:core/core.dart' show AppColors, AppColorsContextX, BlocBuilder, ReadContext;
 import 'package:flutter/material.dart'
     show
         BorderRadius,
@@ -33,13 +33,13 @@ import 'package:premium/src/presentation/cubits/registration_cubit.dart'
 import 'package:shared/shared.dart'
     show AppTextField, CountrySelector, PhosphorIcon, PhosphorIconsBold;
 
-part 'src/full_name_field.component.dart';
-part 'src/email_field.component.dart';
 part 'src/country_field.component.dart';
+part 'src/email_field.component.dart';
+part 'src/full_name_field.component.dart';
 part 'src/password_field.component.dart';
 part 'src/password_validation_check_list.component.dart';
-part 'src/validation_item.component.dart';
 part 'src/register_button.component.dart';
+part 'src/validation_item.component.dart';
 
 typedef FullNameField = _FullNameField;
 typedef EmailField = _EmailField;

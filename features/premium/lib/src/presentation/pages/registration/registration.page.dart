@@ -1,4 +1,4 @@
-import 'package:core/core.dart' show LightColors;
+import 'package:core/core.dart' show AppColors, AppColorsContextX;
 import 'package:flutter/material.dart'
     show
         AnnotatedRegion,
@@ -37,7 +37,7 @@ class RegistrationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     final ThemeData theme = Theme.of(context);
 
     return AnnotatedRegion<SystemUiOverlayStyle>(

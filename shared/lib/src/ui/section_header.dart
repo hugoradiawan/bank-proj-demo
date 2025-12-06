@@ -1,4 +1,4 @@
-import 'package:core/core.dart' show LightColors;
+import 'package:core/core.dart' show AppColors, AppColorsContextX;
 import 'package:flutter/material.dart'
     show
         BorderRadius,
@@ -33,6 +33,7 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final AppColors colors = context.colors;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -45,7 +46,7 @@ class SectionHeader extends StatelessWidget {
         if (actionText != null)
           InkWell(
             borderRadius: BorderRadius.circular(4),
-            splashColor: LightColors().primaryLight.withValues(alpha: 0.3),
+            splashColor: colors.primaryLight.withValues(alpha: 0.3),
             onTap: onActionTap,
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -54,12 +55,12 @@ class SectionHeader extends StatelessWidget {
                 Text(
                   actionText!,
                   style: theme.textTheme.bodyMedium?.copyWith(
-                    color: LightColors().info,
+                    color: colors.info,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(width: 2),
-                Icon(Icons.chevron_right, color: LightColors().info, size: 18),
+                Icon(Icons.chevron_right, color: colors.info, size: 18),
               ],
             ),
           ),

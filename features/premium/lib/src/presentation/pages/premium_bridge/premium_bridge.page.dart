@@ -1,4 +1,4 @@
-import 'package:core/core.dart' show LightColors;
+import 'package:core/core.dart' show AppColors, AppColorsContextX;
 import 'package:flutter/material.dart'
     show
         Alignment,
@@ -47,7 +47,7 @@ class PremiumBridgePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.light,

@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:confetti/confetti.dart' show ConfettiWidget;
-import 'package:core/core.dart' show BlocBuilder, LightColors;
+import 'package:core/core.dart' show AppColors, AppColorsContextX, BlocBuilder;
 import 'package:flutter/material.dart'
     show
         Align,
@@ -45,7 +45,7 @@ class SuccessPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     final ThemeData theme = Theme.of(context);
     final double screenHeight = MediaQuery.sizeOf(context).height;
 

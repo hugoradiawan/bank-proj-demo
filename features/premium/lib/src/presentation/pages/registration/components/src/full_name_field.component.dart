@@ -5,7 +5,7 @@ class _FullNameField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
     final ThemeData theme = Theme.of(context);
     final RegistrationCubit cubit = context.read<RegistrationCubit>();
 

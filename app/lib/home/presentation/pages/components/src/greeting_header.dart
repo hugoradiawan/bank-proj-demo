@@ -29,7 +29,7 @@ class _GreetingHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final LightColors colors = LightColors();
+    final AppColors colors = context.colors;
 
     return Container(
       alignment: Alignment.bottomCenter,
