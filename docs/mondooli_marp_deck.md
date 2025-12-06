@@ -297,34 +297,18 @@ style: |
 </div>
 
 ---
-## Design System & Tech Stack
+## Design System & Tech Stack · Part 1
 - Colors + gradients centralized in `LightColors`; premium + base palettes toggled via `AppTheme`
+- **Light/Dark Mode**: runtime theme toggle via `ThemeCubit`; persisted to `SharedPreferences` for session continuity
 - Typography: bundled Figtree font files (`app/assets/fonts/Figtree`) + GoogleFonts fallback
 - State management: `flutter_bloc` cubits for nav + network (`AppBottomNavBarCubit`, `HttpCubit`)
+- **Barrel files** pattern (`core.dart`, `shared.dart`, `network.dart`) improves module encapsulation and simplifies imports across packages
+
+---
+## Design System & Tech Stack · Part 2
 - Linting: repo-level `analysis_options.yaml` cranks Flutter lints to production-ready strictness (e.g., `always_specify_types`, `unused_import` as errors) to lock in code quality.
 - Tooling: `melos`, `build_runner`, `freezed`, `json_serializable`, `go_router_builder`, all behind `fvm` so every script pins the same Flutter version.
 - Platform targets: Android + iOS (Gradle, Xcode configs already in repo)
----
-## Core Initialization Snapshot
-````dart
-// core/lib/src/initialize.dart
-MultiBlocProvider(
-   providers: [
-      BlocProvider<HttpCubit>(
-         create: (_) => HttpCubit(
-            BaseOptions(
-               connectTimeout: const Duration(seconds: 30),
-               receiveTimeout: const Duration(seconds: 30),
-            ),
-         ),
-      ),
-      RepositoryProvider<LocalDataRepository>.value(
-         value: SharedPreferencesService(),
-      ),
-   ],
-   child: child,
-);
-````
 
 ---
 ## API & Data Flow
@@ -352,6 +336,7 @@ MultiBlocProvider(
 ## Submission Package & Runbook
 - **Repository**: `https://github.com/hugoradiawan/mondooli` (branch/tag: `main`).
 - **Prototype placeholder**: _Embed Figma/Loom link here once recording is ready._
+- **APK Size**: ~50 MB raw APK; estimated ~20 MB on Google Play (AAB + delivery optimization) and ~40 MB on App Store.
 - **Run locally**
    1. `fvm use`
    2. `melos bootstrap`
