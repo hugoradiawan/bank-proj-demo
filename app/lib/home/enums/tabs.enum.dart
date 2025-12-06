@@ -1,7 +1,6 @@
-import 'package:app/home/presentation/pages/components/tabs.dart' show HomeTab, PlaceholderTab;
-import 'package:flutter/material.dart' show Widget;
-import 'package:shared/shared.dart'
-    show PhosphorFlatIconData, PhosphorIconsBold, PhosphorIconsFill;
+import 'package:app/home/presentation/pages/components/tabs.dart';
+import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
 enum TabsEnum {
   home(

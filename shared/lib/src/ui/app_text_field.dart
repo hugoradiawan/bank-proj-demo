@@ -1,26 +1,5 @@
-import 'package:core/core.dart' show AppColors, AppColorsContextX;
-import 'package:flutter/material.dart'
-    show
-        BorderRadius,
-        BorderSide,
-        BuildContext,
-        Color,
-        EdgeInsets,
-        FocusNode,
-        FontWeight,
-        InputBorder,
-        InputDecoration,
-        OutlineInputBorder,
-        State,
-        StatefulWidget,
-        TextField,
-        TextInputAction,
-        TextInputType,
-        Theme,
-        ThemeData,
-        ValueChanged,
-        VoidCallback,
-        Widget;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 
 class AppTextField extends StatefulWidget {
   const AppTextField({

@@ -1,19 +1,9 @@
-import 'package:app/home/route/home_route.dart' show homeRoutes;
-import 'package:core/core.dart' show AppTheme, BlocBuilder, Core, ThemeCubit;
-import 'package:flutter/material.dart'
-    show
-        AnnotatedRegion,
-        Brightness,
-        Colors,
-        MaterialApp,
-        StatelessWidget,
-        ThemeMode,
-        Widget,
-        WidgetsFlutterBinding,
-        runApp;
-import 'package:flutter/services.dart' show SystemUiOverlayStyle;
-import 'package:go_router/go_router.dart' show GoRouter, RouteBase;
-import 'package:premium/route.dart' show premiumRoutes;
+import 'package:app/home/route/home_route.dart';
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
+import 'package:premium/route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show Alignment, Color, LinearGradient;
+import 'package:flutter/material.dart';
 
 abstract class AppColors {
   // Primary

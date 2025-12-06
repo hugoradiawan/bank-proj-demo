@@ -1,9 +1,7 @@
-import 'dart:convert' show jsonDecode, jsonEncode;
+import 'dart:convert';
 
-import 'package:core/src/interfaces/local_data_repository.dart'
-    show LocalDataRepository;
-import 'package:shared_preferences/shared_preferences.dart'
-    show SharedPreferences;
+import 'package:core/src/interfaces/local_data_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesService implements LocalDataRepository {
   factory SharedPreferencesService() => _instance;

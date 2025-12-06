@@ -1,9 +1,9 @@
-import 'package:core/core.dart' show Cubit, NoParams;
-import 'package:flutter/material.dart' show BuildContext;
-import 'package:premium/src/data/models/country_with_flag.model.dart' show CountryWithFlagModel;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:premium/src/data/models/country_with_flag.model.dart';
 import 'package:premium/src/domain/usecases/fetch_country_with_flag.dart';
-import 'package:premium/src/route/premium.route.dart' show SuccessRoute;
-import 'package:shared/shared.dart' show Country;
+import 'package:premium/src/route/premium.route.dart';
+import 'package:shared/shared.dart';
 
 part 'src/registration/registration.cubit.dart';
 part 'src/registration/registration.state.dart';

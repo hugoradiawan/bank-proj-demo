@@ -1,44 +1,10 @@
 import 'dart:math' as math;
 
-import 'package:confetti/confetti.dart' show ConfettiWidget;
-import 'package:core/core.dart' show AppColors, AppColorsContextX, BlocBuilder;
-import 'package:flutter/material.dart'
-    show
-        Align,
-        Alignment,
-        BorderRadius,
-        BoxDecoration,
-        BoxShape,
-        BuildContext,
-        Center,
-        Color,
-        Column,
-        Container,
-        EdgeInsets,
-        FilledButton,
-        FontWeight,
-        IgnorePointer,
-        MainAxisSize,
-        MediaQuery,
-        Navigator,
-        Padding,
-        Positioned,
-        Radius,
-        RoundedRectangleBorder,
-        SafeArea,
-        Scaffold,
-        Size,
-        SizedBox,
-        Stack,
-        StatelessWidget,
-        Text,
-        TextAlign,
-        Theme,
-        ThemeData,
-        Widget;
-import 'package:premium/src/presentation/cubits/success_confetti_cubit.dart'
-    show SuccessConfettiCubit, SuccessConfettiState;
-import 'package:shared/shared.dart' show PhosphorIcon, PhosphorIconsBold;
+import 'package:confetti/confetti.dart';
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:premium/src/presentation/cubits/success_confetti_cubit.dart';
+import 'package:shared/shared.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});

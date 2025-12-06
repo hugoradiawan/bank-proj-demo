@@ -1,19 +1,6 @@
-import 'package:core/core.dart' show AppColors, AppColorsContextX;
-import 'package:flutter/material.dart'
-    show
-        BuildContext,
-        EdgeInsets,
-        Expanded,
-        Icon,
-        Icons,
-        Padding,
-        Row,
-        SizedBox,
-        StatelessWidget,
-        TextStyle,
-        Widget;
-import 'package:flutter_auto_size_text/flutter_auto_size_text.dart'
-    show AutoSizeText;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_auto_size_text/flutter_auto_size_text.dart';
 
 part 'check_list_tile.component.dart';
 

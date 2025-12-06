@@ -1,20 +1,12 @@
-import 'package:core/src/interfaces/local_data_repository.dart'
-    show LocalDataRepository;
-import 'package:core/src/local_data/shared_prefenrences.dart'
-    show SharedPreferencesService;
-import 'package:core/src/network/http_cubit.dart' show HttpCubit;
+import 'package:core/src/interfaces/local_data_repository.dart';
+import 'package:core/src/local_data/shared_prefenrences.dart';
+import 'package:core/src/network/http_cubit.dart';
 import 'package:core/src/state_management/bloc.dart';
-import 'package:core/src/theme/app_typography.dart' show AppTypography;
-import 'package:core/src/theme/theme_cubit.dart' show ThemeCubit;
-import 'package:dio/dio.dart' show BaseOptions;
-import 'package:flutter/material.dart' show AnnotatedRegion, Colors, Widget;
-import 'package:flutter/services.dart'
-    show
-        Brightness,
-        DeviceOrientation,
-        SystemChrome,
-        SystemUiMode,
-        SystemUiOverlayStyle;
+import 'package:core/src/theme/app_typography.dart';
+import 'package:core/src/theme/theme_cubit.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Core {
   Core._();

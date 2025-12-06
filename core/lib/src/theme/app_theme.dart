@@ -1,28 +1,9 @@
-import 'dart:ui' show lerpDouble;
+import 'dart:ui';
 
-import 'package:core/src/theme/app_colors.dart'
-    show AppColors, DarkColors, LightColors;
-import 'package:core/src/theme/app_colors_theme.dart' show AppColorsTheme;
-import 'package:core/src/theme/app_typography.dart' show AppTypography;
-import 'package:flutter/material.dart'
-    show
-        BorderRadius,
-        Brightness,
-        Color,
-        ColorScheme,
-        Colors,
-        EdgeInsets,
-        FilledButton,
-        FilledButtonThemeData,
-        FontWeight,
-        InkRipple,
-        InputDecorationTheme,
-        OutlineInputBorder,
-        RoundedRectangleBorder,
-        TextTheme,
-        ThemeData,
-        ThemeExtension,
-        immutable;
+import 'package:core/src/theme/app_colors.dart';
+import 'package:core/src/theme/app_colors_theme.dart';
+import 'package:core/src/theme/app_typography.dart';
+import 'package:flutter/material.dart';
 
 @immutable
 class HighlightTileTheme extends ThemeExtension<HighlightTileTheme> {

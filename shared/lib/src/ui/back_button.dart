@@ -1,15 +1,4 @@
-import 'package:flutter/cupertino.dart'
-    show
-        BorderRadius,
-        BoxDecoration,
-        BuildContext,
-        Container,
-        Icon,
-        Navigator,
-        Positioned,
-        StatelessWidget,
-        Widget;
-import 'package:flutter/material.dart' show Border, Color, Icons, InkWell;
+import 'package:flutter/material.dart';
 
 class FloatingBackButton extends StatelessWidget {
   const FloatingBackButton({

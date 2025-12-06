@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:confetti/confetti.dart' show ConfettiController;
-import 'package:core/core.dart' show Cubit;
+import 'package:confetti/confetti.dart';
+import 'package:core/core.dart';
 
 part 'src/success/success_confetti.cubit.dart';
 part 'src/success/success_confetti.state.dart';

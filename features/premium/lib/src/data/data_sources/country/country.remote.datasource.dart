@@ -1,9 +1,8 @@
-import 'package:core/core.dart' show ReadContext;
-import 'package:core/network.dart' show HttpCubit, Response;
+import 'package:core/core.dart';
+import 'package:core/network.dart';
 import 'package:flutter/material.dart';
 import 'package:premium/src/data/models/country_with_flag.model.dart';
-import 'package:premium/src/domain/data_sources/country/country.remote.datasource.dart'
-    show CountryRemoteDataSource;
+import 'package:premium/src/domain/data_sources/country/country.remote.datasource.dart';
 
 class CountryRemoteDataSourceImpl extends CountryRemoteDataSource {
   @override

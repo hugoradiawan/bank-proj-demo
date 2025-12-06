@@ -1,6 +1,5 @@
-import 'package:core/src/theme/app_colors.dart' show AppColors, DarkColors, LightColors;
-import 'package:flutter/material.dart'
-    show BuildContext, Theme, ThemeData, ThemeExtension, immutable;
+import 'package:core/src/theme/app_colors.dart';
+import 'package:flutter/material.dart';
 
 @immutable
 class AppColorsTheme extends ThemeExtension<AppColorsTheme> {

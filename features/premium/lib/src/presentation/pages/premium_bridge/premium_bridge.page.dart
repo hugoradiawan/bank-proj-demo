@@ -1,44 +1,9 @@
-import 'package:core/core.dart' show AppColors, AppColorsContextX;
-import 'package:flutter/material.dart'
-    show
-        Alignment,
-        AnnotatedRegion,
-        BorderRadius,
-        BoxDecoration,
-        BoxFit,
-        Brightness,
-        BuildContext,
-        Column,
-        Container,
-        CrossAxisAlignment,
-        EdgeInsets,
-        ElevatedButton,
-        Expanded,
-        FontWeight,
-        Hero,
-        Image,
-        Matrix4,
-        MediaQuery,
-        Padding,
-        Positioned,
-        RoundedRectangleBorder,
-        SafeArea,
-        Scaffold,
-        Size,
-        SizedBox,
-        Stack,
-        StatelessWidget,
-        Text,
-        TextStyle,
-        Transform,
-        VoidCallback,
-        Widget;
-import 'package:flutter/services.dart' show SystemUiOverlayStyle;
-import 'package:flutter_auto_size_text/flutter_auto_size_text.dart'
-    show AutoSizeText;
-import 'package:premium/src/presentation/pages/premium_bridge/components/src/premium_bridge.component.dart'
-    show CheckListTile;
-import 'package:shared/shared.dart' show FloatingBackButton;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_auto_size_text/flutter_auto_size_text.dart';
+import 'package:premium/src/presentation/pages/premium_bridge/components/src/premium_bridge.component.dart';
+import 'package:shared/shared.dart';
 
 class PremiumBridgePage extends StatelessWidget {
   const PremiumBridgePage({required this.onAccessPremiumNow, super.key});

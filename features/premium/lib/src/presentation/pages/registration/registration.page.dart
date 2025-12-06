@@ -1,36 +1,8 @@
-import 'package:core/core.dart' show AppColors, AppColorsContextX;
-import 'package:flutter/material.dart'
-    show
-        AnnotatedRegion,
-        Brightness,
-        BuildContext,
-        Column,
-        CrossAxisAlignment,
-        EdgeInsets,
-        Expanded,
-        FocusScope,
-        FontWeight,
-        GestureDetector,
-        SafeArea,
-        Scaffold,
-        SingleChildScrollView,
-        SizedBox,
-        Stack,
-        StatelessWidget,
-        Text,
-        Theme,
-        ThemeData,
-        Widget;
-import 'package:flutter/services.dart' show SystemUiOverlayStyle;
-import 'package:premium/src/presentation/pages/registration/components/registration.component.dart'
-    show
-        CountryField,
-        EmailField,
-        FullNameField,
-        PasswordField,
-        PasswordValidationChecklist,
-        RegisterButton;
-import 'package:shared/shared.dart' show FloatingBackButton;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:premium/src/presentation/pages/registration/components/registration.component.dart';
+import 'package:shared/shared.dart';
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({super.key});

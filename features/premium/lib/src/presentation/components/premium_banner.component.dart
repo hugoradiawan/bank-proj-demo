@@ -1,38 +1,7 @@
-import 'package:core/core.dart' show AppColors, AppColorsContextX;
-import 'package:flutter/material.dart'
-    show
-        Alignment,
-        BorderRadius,
-        BoxDecoration,
-        BoxFit,
-        BuildContext,
-        Clip,
-        ClipRRect,
-        Colors,
-        Column,
-        Container,
-        CrossAxisAlignment,
-        EdgeInsets,
-        Expanded,
-        FontWeight,
-        Hero,
-        Image,
-        InkWell,
-        Material,
-        Matrix4,
-        Padding,
-        Positioned,
-        Row,
-        SizedBox,
-        Stack,
-        StatelessWidget,
-        Text,
-        Theme,
-        ThemeData,
-        Transform,
-        Widget;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 import 'package:premium/src/route/premium.route.dart';
-import 'package:shared/shared.dart' show PhosphorIcon, PhosphorIconsBold;
+import 'package:shared/shared.dart';
 
 class PremiumBanner extends StatelessWidget {
   const PremiumBanner({super.key});

@@ -1,37 +1,7 @@
-import 'package:core/core.dart' show AppColors, AppColorsContextX, BlocBuilder, ReadContext;
-import 'package:flutter/material.dart'
-    show
-        BorderRadius,
-        BoxDecoration,
-        BuildContext,
-        Color,
-        Column,
-        Container,
-        CrossAxisAlignment,
-        EdgeInsets,
-        FilledButton,
-        FontWeight,
-        GestureDetector,
-        MainAxisSize,
-        Padding,
-        Positioned,
-        Radius,
-        RoundedRectangleBorder,
-        Row,
-        SafeArea,
-        Size,
-        SizedBox,
-        StatelessWidget,
-        Text,
-        TextInputAction,
-        TextInputType,
-        Theme,
-        ThemeData,
-        Widget;
-import 'package:premium/src/presentation/cubits/registration_cubit.dart'
-    show RegistrationCubit, RegistrationState;
-import 'package:shared/shared.dart'
-    show AppTextField, CountrySelector, PhosphorIcon, PhosphorIconsBold;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:premium/src/presentation/cubits/registration_cubit.dart';
+import 'package:shared/shared.dart';
 
 part 'src/country_field.component.dart';
 part 'src/email_field.component.dart';

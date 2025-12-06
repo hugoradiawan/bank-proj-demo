@@ -1,18 +1,6 @@
-import 'package:core/core.dart' show AppColorsContextX;
-import 'package:flutter/material.dart'
-    show
-        BorderRadius,
-        BuildContext,
-        Center,
-        Colors,
-        IconData,
-        InkWell,
-        Material,
-        SizedBox,
-        StatelessWidget,
-        VoidCallback,
-        Widget;
-import 'package:phosphor_flutter/phosphor_flutter.dart' show PhosphorIcon;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class VerticalIconButton extends StatelessWidget {
   const VerticalIconButton({required this.icon, super.key, this.onTap});

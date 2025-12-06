@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart' show ThemeMode;
-import 'package:flutter_bloc/flutter_bloc.dart' show Cubit;
-import 'package:shared_preferences/shared_preferences.dart'
-    show SharedPreferences;
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const String _themeModeKey = 'theme_mode';
 

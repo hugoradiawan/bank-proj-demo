@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart' show Color, TextTheme;
-import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTypography {
   AppTypography._();

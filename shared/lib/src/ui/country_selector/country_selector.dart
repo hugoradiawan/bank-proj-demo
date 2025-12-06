@@ -1,45 +1,6 @@
-import 'package:core/core.dart' show AppColors, AppColorsContextX;
-import 'package:flutter/material.dart'
-    show
-        Border,
-        BorderRadius,
-        BoxConstraints,
-        BoxDecoration,
-        BuildContext,
-        Center,
-        CircularProgressIndicator,
-        Color,
-        Column,
-        Container,
-        CrossAxisAlignment,
-        EdgeInsets,
-        Expanded,
-        FontWeight,
-        GestureDetector,
-        Icon,
-        Icons,
-        Image,
-        InkWell,
-        ListTile,
-        ListView,
-        MainAxisSize,
-        MediaQuery,
-        Navigator,
-        Padding,
-        Radius,
-        RoundedRectangleBorder,
-        Row,
-        SafeArea,
-        SizedBox,
-        StatelessWidget,
-        Text,
-        Theme,
-        ThemeData,
-        ValueChanged,
-        Widget,
-        showModalBottomSheet;
-import 'package:phosphor_flutter/phosphor_flutter.dart'
-    show PhosphorIcon, PhosphorIconsBold;
+import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 part 'country_picker_bottomsheet.dart';
 
