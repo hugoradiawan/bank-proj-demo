@@ -1,7 +1,6 @@
 ---
 marp: true
 paginate: true
-size: 16:9
 footer: "Hugo Radiawan · Mondooli Mobile Candidate"
 style: |
    @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap');
@@ -205,10 +204,10 @@ style: |
    <div class="visual">
       <div class="screens">
          <figure>
-            <img src="images/registration1.png" alt="Registration form empty state with disabled CTA" />
+            <img src="images/registration1.webp" alt="Registration form empty state with disabled CTA" />
          </figure>
          <figure>
-            <img src="images/regisration2.png" alt="Registration form completed state with active CTA" />
+            <img src="images/regisration2.webp" alt="Registration form completed state with active CTA" />
          </figure>
       </div>
    </div>
@@ -227,10 +226,10 @@ style: |
    <div class="visual">
       <div class="screens">
             <figure>
-               <img src="images/home1.png" alt="Home greeting state with balance card and quick actions" />
+               <img src="images/home1.webp" alt="Home greeting state with balance card and quick actions" />
             </figure>
             <figure>
-               <img src="images/home2.png" alt="Home hero banner promoting premium upgrade" />
+               <img src="images/home2.webp" alt="Home hero banner promoting premium upgrade" />
             </figure>
       </div>
    </div>
@@ -265,7 +264,7 @@ style: |
    <div class="visual">
       <div class="screens">
         <figure>
-          <img src="images/premium.png" alt="Premium bridge hero with crown illustration and CTA" />
+          <img src="images/premium.webp" alt="Premium bridge hero with crown illustration and CTA" />
         </figure>
       </div>
    </div>
@@ -290,7 +289,7 @@ style: |
    <div class="visual">
       <div class="screens">
         <figure>
-          <img src="images/success.png" alt="Registration success confirmation with confetti animation" />
+          <img src="images/success.webp" alt="Registration success confirmation with confetti animation" />
         </figure>
       </div>
    </div>
