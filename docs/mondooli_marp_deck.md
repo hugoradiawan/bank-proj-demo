@@ -3,7 +3,36 @@ marp: true
 paginate: true
 footer: "Hugo Radiawan · Mondooli Mobile Candidate"
 style: |
-   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap');
+   @font-face {
+      font-family: 'Figtree';
+      src: url('fonts/Figtree-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+   }
+   @font-face {
+      font-family: 'Figtree';
+      src: url('fonts/Figtree-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+   }
+   @font-face {
+      font-family: 'Figtree';
+      src: url('fonts/Figtree-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+   }
+   @font-face {
+      font-family: 'Figtree';
+      src: url('fonts/Figtree-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+   }
+   @font-face {
+      font-family: 'Figtree';
+      src: url('fonts/Figtree-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+   }
    :root {
       --primary: #1D4ED8;
       --premium: linear-gradient(135deg, #AD840A 0%, #000000 100%);
