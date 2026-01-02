@@ -1,12 +1,10 @@
 # Mondooli Premium Experience
 
-A Flutter application built to replicate Mondooli's premium journey using clean architecture and Melos packages.
-
-> **Engineer Case Study 2025 · Confidential — do not distribute**
+A Flutter application built to replicate Bank's premium journey using clean architecture and Melos packages.
 
 ## Overview
 
-Purpose-built to transform Mondooli designs into a scalable premium upsell journey. Built end-to-end across `app`, `core`, `shared`, and `features/premium`.
+Purpose-built to transform Bank designs into a scalable premium upsell journey. Built end-to-end across `app`, `core`, `shared`, and `features/premium`.
 
 ## Tech Stack
 
@@ -21,7 +19,7 @@ Purpose-built to transform Mondooli designs into a scalable premium upsell journ
 ## Project Structure
 
 ```
-mondooli/
+Bank/
 ├── app/              # Main application shell
 ├── core/             # Theme, HTTP client, shared services
 ├── shared/           # Reusable UI components
@@ -85,11 +83,3 @@ melos run app
 ```bash
 melos run build:apk
 ```
-
-## Confidentiality
-
-This repository contains **Engineer Case Study 2025** materials. Share only with Mondooli's hiring panel. Avoid posting to public repos, social platforms, or messengers.
-
-## Contact
-
-Submit to: `novistya.rahmawati@mondooli.com`
