@@ -1,4 +1,4 @@
-# Mondooli Premium Experience
+# Bank Premium Experience
 
 A Flutter application built to replicate Bank's premium journey using clean architecture and Melos packages.
 
